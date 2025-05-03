@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "bash deploy.sh",
-    "build:prod": "bash build.sh"
+    "deploy": "bash deploy.sh"
   },
   "dependencies": {
     "echarts": "^5.6.0",

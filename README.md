@@ -31,8 +31,6 @@ npm install
 
 ```bash
 npm run dev
-# 或者
-./dev.sh
 ```
 
 开发服务器将在 http://localhost:5173/ 启动（或者其他可用端口）。
@@ -42,9 +40,7 @@ npm run dev
 如果您想构建生产版本但不部署到GitHub Pages，可以使用以下命令：
 
 ```bash
-npm run build:prod
-# 或者
-./build.sh
+npm run build
 ```
 
 构建完成后，生产版本将位于`dist`目录中。您可以使用以下命令在本地预览生产版本：
@@ -60,18 +56,25 @@ npm run preview
 ```bash
 npm run deploy
 # 或者
-./deploy.sh
+./deploy.sh "您的提交信息"
 ```
 
-这将构建生产版本并将其部署到GitHub Pages。部署完成后，您可以在 https://xiuguangli.github.io/PaperSearch/ 访问应用程序。
+如果您使用 `./deploy.sh` 而不提供提交信息，将使用默认信息"更新代码和部署"。
+
+这个脚本会执行以下操作：
+1. 将您的代码更改提交并推送到 GitHub 仓库的 main 分支
+2. 构建生产版本
+3. 将构建后的文件部署到 GitHub Pages (gh-pages 分支)
+
+部署完成后，您可以在 https://xiuguangli.github.io/PaperSearch/ 访问应用程序。
 
 ## 工作流程建议
 
 1. 使用`npm run dev`进行本地开发和测试
-2. 使用`npm run build:prod`构建生产版本并在本地预览
-3. 确认一切正常后，使用`npm run deploy`部署到GitHub Pages
+2. 使用`npm run build`构建生产版本并在本地预览
+3. 确认一切正常后，使用`./deploy.sh "您的提交信息"`将代码上传到GitHub并部署到GitHub Pages
 
-这种工作流程可以确保您在部署到GitHub Pages之前，在本地充分测试您的更改。
+这种工作流程可以确保您在部署到GitHub Pages之前，在本地充分测试您的更改，并且能够一步完成代码上传和网站部署。
 
 ## 技术栈
 
