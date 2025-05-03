@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PaperSearch - Browse and search academic papers from top conferences" />
+    <meta name="keywords" content="academic papers, research, conference, search, AAAI, CVPR, NeurIPS, ICLR" />
+    <title>PaperSearch</title>
+    <!-- 引入外部CSS文件，确保样式能够正确应用 -->
+    <link rel="stylesheet" href="./override-styles.css">
+    <style>
+      /* 直接在HTML中添加关键样式，确保立即应用 */
+      .el-input__wrapper {
+        background-color: #f5f1ea !important;
+        border-color: #e0d6c9 !important;
+        box-shadow: none !important;
+      }
+      .el-input__inner {
+        background-color: transparent !important;
+        color: #5c4d3c !important;
+      }
+      .el-select-dropdown__item.selected {
+        background-color: #e0d6c9 !important;
+        color: #5c4d3c !important;
+        position: relative !important;
+      }
+      .el-select-dropdown__item.selected::before {
+        content: "" !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 3px !important;
+        background-color: #7d6c55 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

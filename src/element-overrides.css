@@ -1,0 +1,648 @@
+/* ElementUI Plus Overrides - Warm Theme */
+
+/* Global override to remove blue outline on all elements */
+*:focus,
+*:focus-visible,
+*:focus-within,
+*:active {
+  outline-color: #7d6c55 !important;
+}
+
+/* Global override to remove all hover effects on form elements */
+.el-input__wrapper,
+.el-select .el-input__wrapper,
+.el-input .el-input__wrapper,
+.el-select .el-input .el-input__wrapper,
+.el-input-number .el-input__wrapper,
+.el-textarea__wrapper {
+  transition: none !important;
+}
+
+/* Global override to ensure consistent styling for all input states */
+.el-input__wrapper:hover,
+.el-input__wrapper:focus,
+.el-input__wrapper:active,
+.el-input__wrapper.is-focus,
+.el-input.is-focus .el-input__wrapper,
+.el-select .el-input__wrapper:hover,
+.el-select .el-input__wrapper:focus,
+.el-select .el-input__wrapper:active,
+.el-select .el-input__wrapper.is-focus,
+.el-select .el-input.is-focus .el-input__wrapper {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  transition: none !important;
+}
+
+/* Remove inner borders from search input fields */
+.el-input__inner {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove inner borders from search input prefix icons */
+.el-input__prefix-inner {
+  border-right: none !important;
+}
+
+/* Remove inner borders from search input fields */
+.el-input .el-input__wrapper .el-input__inner {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Target the specific inner border element */
+.el-input__prefix {
+  border-right: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove the border between the icon and input text */
+.el-input__prefix::after {
+  display: none !important;
+}
+
+/* Ensure no border on the search icon container */
+.el-input__prefix-inner {
+  border-right: none !important;
+  box-shadow: none !important;
+}
+
+/* Target the specific search input component */
+.el-input--prefix .el-input__inner {
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+/* Completely remove the divider between icon and input */
+.el-input .el-input__prefix {
+  background: none !important;
+  border-right: none !important;
+}
+
+.el-input .el-input__prefix::after,
+.el-input .el-input__prefix::before {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Specific override for Element Plus components */
+.el-input__wrapper,
+.el-select .el-input__wrapper,
+.el-select-dropdown__item,
+.el-select__input,
+.el-input__inner {
+  --el-input-focus-border-color: #7d6c55 !important;
+  --el-select-input-focus-border-color: #7d6c55 !important;
+  --el-input-hover-border-color: #7d6c55 !important;
+  --el-select-input-hover-border-color: #7d6c55 !important;
+  --el-fill-color-blank: #f8f5f1 !important; /* 设置输入框背景色 */
+  --el-bg-color: #f8f5f1 !important; /* 设置背景色 */
+  --el-bg-color-overlay: #f8f5f1 !important; /* 设置覆盖层背景色 */
+}
+
+/* Select Dropdown Menu */
+.el-select-dropdown {
+  background-color: #f5f1ea !important;
+  border: 1px solid #e0d6c9 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  font-family: 'Georgia', serif !important;
+}
+
+/* Select Dropdown Items */
+.el-select-dropdown__item {
+  color: #5c4d3c !important;
+  font-family: 'Georgia', serif !important;
+}
+
+/* Hover state for dropdown items */
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover {
+  background-color: #f0ece6 !important;
+}
+
+/* Selected dropdown item */
+.el-select-dropdown__item.selected {
+  color: #7d6c55 !important;
+  font-weight: bold !important;
+  background-color: rgba(125, 108, 85, 0.1) !important;
+}
+
+/* Selected dropdown item when hovered */
+.el-select-dropdown__item.selected.hover,
+.el-select-dropdown__item.selected:hover {
+  background-color: rgba(125, 108, 85, 0.2) !important;
+}
+
+/* Dropdown popper arrow */
+.el-popper__arrow::before {
+  background-color: #f5f1ea !important;
+  border-color: #e0d6c9 !important;
+}
+
+/* Select input when focused */
+.el-select .el-input.is-focus .el-input__wrapper {
+  box-shadow: 0 0 0 1px #7d6c55 !important;
+  border-color: #7d6c55 !important;
+}
+
+/* Input wrapper focus state */
+.el-input.is-focus .el-input__wrapper,
+.el-input__wrapper.is-focus,
+.el-input.is-focus .el-input__inner,
+.el-input__inner:focus,
+.el-input__inner:focus-visible,
+.el-select__input:focus,
+.el-select__input:focus-visible {
+  box-shadow: 0 0 0 1px #7d6c55 !important;
+  border-color: #7d6c55 !important;
+  outline: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  outline-color: #7d6c55 !important;
+}
+
+/* Select tags (for multiple select) */
+.el-select .el-select__tags .el-tag {
+  background-color: rgba(125, 108, 85, 0.1) !important;
+  border-color: #7d6c55 !important;
+  color: #5c4d3c !important;
+}
+
+/* Tag close button */
+.el-select .el-select__tags .el-tag .el-tag__close {
+  color: #7d6c55 !important;
+}
+
+.el-select .el-select__tags .el-tag .el-tag__close:hover {
+  background-color: #7d6c55 !important;
+  color: white !important;
+}
+
+/* Dropdown scrollbar */
+.el-select-dropdown__wrap::-webkit-scrollbar {
+  width: 6px;
+}
+
+.el-select-dropdown__wrap::-webkit-scrollbar-thumb {
+  background-color: #d5c8b5;
+  border-radius: 3px;
+}
+
+.el-select-dropdown__wrap::-webkit-scrollbar-track {
+  background-color: #f0ece6;
+}
+
+/* Dropdown empty text */
+.el-select-dropdown__empty {
+  color: #8a7a65 !important;
+  font-family: 'Georgia', serif !important;
+}
+
+/* Dropdown list padding */
+.el-select-dropdown__list {
+  padding: 6px 0 !important;
+}
+
+/* Dropdown popper */
+.el-popper.is-light {
+  border-color: #e0d6c9 !important;
+  border: 1px solid #e0d6c9 !important;
+}
+
+/* Select dropdown active option */
+.el-select-dropdown__item.is-active {
+  color: #7d6c55 !important;
+  font-weight: bold !important;
+}
+
+/* Select dropdown option with pointer */
+.el-select-dropdown__item.is-pointer {
+  background-color: #f0ece6 !important;
+}
+
+/* Select input wrapper */
+.el-select .el-input__wrapper {
+  background-color: #f8f5f1 !important; /* 使用页面背景色 */
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  outline: none !important;
+}
+
+/* Fix for blue border in select input */
+.el-input__wrapper {
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  border-color: #e0d6c9 !important;
+  outline: none !important;
+  background-color: #f8f5f1 !important; /* 使用页面背景色 */
+}
+
+/* Select input wrapper on hover - removed hover effect */
+.el-select .el-input__wrapper:hover {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  transition: none !important;
+}
+
+/* Input wrapper hover state - removed hover effect */
+.el-input__wrapper:hover {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  transition: none !important;
+}
+
+/* Select dropdown option padding */
+.el-select-dropdown__item {
+  padding: 0 20px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+}
+
+/* Select dropdown option font size */
+.el-select-dropdown__item {
+  font-size: var(--font-size-small) !important;
+}
+
+/* Dropdown menu max height */
+.el-select-dropdown .el-scrollbar__wrap {
+  max-height: 274px !important;
+}
+
+/* Dropdown menu border radius */
+.el-select-dropdown {
+  border-radius: 6px !important;
+}
+
+/* Dropdown menu padding */
+.el-select-dropdown {
+  padding: 5px 0 !important;
+}
+
+/* Dropdown menu box shadow */
+.el-select-dropdown {
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+              0 6px 16px 0 rgba(0, 0, 0, 0.08),
+              0 9px 28px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Dropdown menu transition */
+.el-select-dropdown {
+  transition: transform 0.2s, opacity 0.2s !important;
+}
+
+/* Dropdown menu z-index */
+.el-select-dropdown {
+  z-index: 2000 !important;
+}
+
+/* Dropdown menu position */
+.el-select-dropdown {
+  margin-top: 5px !important;
+}
+
+/* Dropdown menu width */
+.el-select-dropdown {
+  min-width: 180px !important;
+}
+
+/* Dropdown menu font */
+.el-select-dropdown {
+  font-size: var(--font-size-small) !important;
+}
+
+/* Dropdown menu color */
+.el-select-dropdown {
+  color: var(--text-color-primary) !important;
+}
+
+/* Select dropdown arrow */
+.el-select .el-input .el-select__caret {
+  color: var(--text-color-secondary) !important;
+  font-size: 14px !important;
+  transition: transform 0.3s !important;
+}
+
+/* Select dropdown arrow when active */
+.el-select .el-input.is-focus .el-select__caret {
+  color: var(--highlight-color) !important;
+}
+
+/* Select dropdown arrow rotation */
+.el-select .el-input .el-select__caret.is-reverse {
+  transform: rotateZ(180deg) !important;
+}
+
+/* Select input placeholder */
+.el-select .el-input__inner::placeholder {
+  color: var(--text-color-secondary) !important;
+  opacity: 0.7 !important;
+}
+
+/* Select input text */
+.el-select .el-input__inner {
+  color: var(--text-color-primary) !important;
+  font-family: var(--font-family-serif) !important;
+}
+
+/* Select input height */
+.el-select .el-input__wrapper {
+  height: var(--form-element-height) !important;
+}
+
+/* Select input inner height */
+.el-select .el-input__inner {
+  height: 100% !important;
+  line-height: var(--form-element-height) !important;
+}
+
+/* Pagination dropdown specific styles */
+.el-pagination .el-select .el-input .el-input__wrapper {
+  background-color: #f8f5f1 !important; /* 使用页面背景色 */
+  border: 1px solid #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+}
+
+.el-pagination .el-select .el-input .el-input__wrapper:hover {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  transition: none !important;
+}
+
+.el-pagination .el-select .el-input.is-focus .el-input__wrapper {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  transition: none !important;
+}
+
+/* Pagination dropdown menu */
+.el-pagination .el-select .el-popper {
+  background-color: #f5f1ea !important;
+  border: 1px solid #e0d6c9 !important;
+}
+
+/* Pagination dropdown items */
+.el-pagination .el-select-dropdown__item {
+  color: #5c4d3c !important;
+}
+
+/* Pagination dropdown items hover */
+.el-pagination .el-select-dropdown__item.hover,
+.el-pagination .el-select-dropdown__item:hover {
+  background-color: #f0ece6 !important;
+}
+
+/* Pagination dropdown selected item */
+.el-pagination .el-select-dropdown__item.selected,
+.el-pagination .el-select-dropdown__item.is-active {
+  color: #7d6c55 !important;
+  font-weight: bold !important;
+  background-color: rgba(125, 108, 85, 0.1) !important;
+}
+
+/* Pagination dropdown arrow */
+.el-pagination .el-select .el-input .el-select__caret {
+  color: #7d6c55 !important;
+}
+
+/* Pagination dropdown popper arrow */
+.el-pagination .el-popper__arrow::before {
+  background-color: #f5f1ea !important;
+  border-color: #e0d6c9 !important;
+}
+
+/* Year selector specific styles */
+.year-select .el-input__wrapper,
+.el-select.year-select .el-input__wrapper,
+.el-select .el-input__wrapper {
+  border: 1px solid #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  background-color: #f8f5f1 !important; /* 使用页面背景色 */
+  outline: none !important;
+  outline-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Override for all input wrappers to ensure no blue border */
+.el-input .el-input__wrapper {
+  border: 1px solid #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  outline: none !important;
+  background-color: #f8f5f1 !important; /* 使用页面背景色 */
+}
+
+/* 移除 radio button 的方形边框，只保留圆角边框 */
+.el-radio-group {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* 完全移除 radio button 的所有边框 */
+.el-radio-button__inner {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: var(--form-element-border-radius) !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+/* 移除相邻按钮的边框 */
+.el-radio-button:not(:first-child) .el-radio-button__inner {
+  border: none !important;
+  margin-left: 2px !important;
+}
+
+/* 移除默认的左侧边框阴影 */
+.el-radio-button:not(:first-child)::before {
+  display: none !important;
+}
+
+/* 移除 radio-group 的外边框 */
+.el-radio-group,
+.el-radio-group.el-radio-group--small,
+.el-radio-group.el-radio-group--mini {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  outline: none !important;
+}
+
+/* 确保每个 radio-button 是独立的，没有连接在一起 */
+.el-radio-button {
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* 确保悬停状态也没有边框 */
+.el-radio-button__inner:hover,
+.el-radio-button:hover .el-radio-button__inner {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* 确保活动状态也没有边框 */
+.el-radio-button.is-active .el-radio-button__inner,
+.el-radio-button.is-active:hover .el-radio-button__inner {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* 确保焦点状态也没有边框 */
+.el-radio-button__inner:focus,
+.el-radio-button__inner:active,
+.el-radio-button:focus .el-radio-button__inner,
+.el-radio-button:active .el-radio-button__inner {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* 移除所有可能的边框和轮廓 */
+.el-radio-button,
+.el-radio-button__original,
+.el-radio-button__inner,
+.el-radio-group {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+/* 特别针对排序按钮的样式 */
+.sort-buttons .el-radio-group,
+.sort-buttons .el-radio-button,
+.sort-buttons .el-radio-button__inner {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+}
+
+/* 美化排序按钮区域 */
+.sort-buttons {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color-secondary) !important;
+  border-radius: var(--form-element-border-radius) !important;
+  padding: 2px !important;
+  margin-right: 10px !important;
+}
+
+/* 确保相邻按钮之间没有边框，但有适当间距 */
+.el-radio-button + .el-radio-button {
+  border-left: none !important;
+  margin-left: 2px !important;
+}
+
+/* 美化排序按钮 */
+.sort-buttons .el-radio-button__inner {
+  padding: 0 15px !important;
+  font-size: var(--font-size-small) !important;
+  transition: background-color 0.3s ease !important;
+}
+
+/* 排序按钮悬停效果 */
+.sort-buttons .el-radio-button__inner:hover {
+  background-color: rgba(var(--highlight-color-rgb), 0.1) !important;
+}
+
+/* 排序按钮激活状态 */
+.sort-buttons .el-radio-button.is-active .el-radio-button__inner {
+  background-color: var(--highlight-color) !important;
+  color: white !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+/* 排序方向按钮样式 */
+.sort-direction-button {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--text-color-primary) !important;
+  font-size: var(--font-size-medium) !important;
+  padding: 0 10px !important;
+  margin-left: 5px !important;
+  height: var(--form-element-height) !important;
+  transition: color 0.3s ease !important;
+}
+
+/* 排序方向按钮悬停效果 */
+.sort-direction-button:hover {
+  color: var(--highlight-color) !important;
+}
+
+/* 移除所有可能的边框样式 */
+.el-radio-button__inner {
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+/* 完全移除 Element Plus 的默认边框样式 */
+.el-radio-button__inner {
+  --el-radio-button-checked-border-color: transparent !important;
+  --el-radio-button-checked-bg-color: var(--highlight-color) !important;
+  --el-radio-button-checked-text-color: white !important;
+  --el-radio-button-checked-hover-border-color: transparent !important;
+  --el-radio-button-default-border-color: transparent !important;
+  --el-radio-button-hover-border-color: transparent !important;
+  --el-radio-button-active-border-color: transparent !important;
+  --el-radio-button-hover-text-color: var(--text-color-primary) !important;
+  --el-radio-button-active-bg-color: transparent !important;
+  --el-radio-button-active-text-color: var(--text-color-primary) !important;
+  --el-radio-button-default-text-color: var(--text-color-primary) !important;
+}
+
+/* Override for active/focused state to prevent blue outline and remove hover effect */
+.el-input .el-input__wrapper:focus,
+.el-input .el-input__wrapper:active,
+.el-input .el-input__wrapper:focus-within,
+.el-input__wrapper:focus,
+.el-input__wrapper:active,
+.el-input__wrapper:focus-within,
+.el-select__wrapper:focus,
+.el-select__wrapper:active,
+.el-select__wrapper:focus-within,
+.el-select .el-input__wrapper.is-focus,
+.el-select:focus .el-input__wrapper,
+.el-select:active .el-input__wrapper,
+.el-select:focus-within .el-input__wrapper {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  outline: none !important;
+  outline-color: transparent !important;
+  transition: none !important;
+}
+
+/* Specific override for the blue outline when clicking - removed hover effect */
+.el-input__wrapper.is-focus,
+.el-select .el-input__wrapper.is-focus,
+.el-input.is-focus .el-input__wrapper {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  outline: none !important;
+  outline-color: transparent !important;
+  transition: none !important;
+}
+
+.year-select .el-input__wrapper:hover,
+.el-select.year-select .el-input__wrapper:hover {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  transition: none !important;
+}
+
+.year-select .el-input.is-focus .el-input__wrapper,
+.el-select.year-select .el-input.is-focus .el-input__wrapper {
+  border-color: #e0d6c9 !important;
+  box-shadow: 0 0 0 1px #e0d6c9 !important;
+  transition: none !important;
+}

@@ -1,0 +1,15 @@
+{
+  "datasets": [
+    {"conference": "CVPR", "year": "2023", "filename": "CVPR.2023.json"},
+    {"conference": "CVPR", "year": "2024", "filename": "CVPR.2024.json"},
+    {"conference": "ICLR", "year": "2023", "filename": "ICLR.2023.json"},
+    {"conference": "ICLR", "year": "2024", "filename": "ICLR.2024.json"},
+    {"conference": "NeurIPS", "year": "2023", "filename": "NeurIPS.2023.json"},
+    {"conference": "COLT", "year": "2023", "filename": "COLT.2023.json"},
+    {"conference": "COLT", "year": "2024", "filename": "COLT.2024.json"},
+    {"conference": "CoRL", "year": "2021", "filename": "CoRL.2021.json"},
+    {"conference": "CoRL", "year": "2022", "filename": "CoRL.2022.json"},
+    {"conference": "CoRL", "year": "2023", "filename": "CoRL.2023.json"},
+    {"conference": "CoRL", "year": "2024", "filename": "CoRL.2024.json"}
+  ]
+}
