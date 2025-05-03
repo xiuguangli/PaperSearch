@@ -17,17 +17,17 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: './papersearch/package-lock.json'
+          cache-dependency-path: './package-lock.json'
 
       - name: Install dependencies
-        run: cd papersearch && npm ci
+        run: npm ci
 
       - name: Build
-        run: cd papersearch && npm run build
+        run: npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: papersearch/dist
+          folder: dist
           branch: gh-pages
           clean: true
