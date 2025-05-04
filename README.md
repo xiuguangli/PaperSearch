@@ -76,6 +76,9 @@ npm run deploy
 
 这种工作流程可以确保您在部署到GitHub Pages之前，在本地充分测试您的更改，并且能够一步完成代码上传和网站部署。
 
+## 注意
+如果添加了数据，记得修改 public/data/conference.json 文件
+
 ## 技术栈
 
 - Vue 3
