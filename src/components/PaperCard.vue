@@ -40,9 +40,15 @@
         <span>{{ formatAuthorsDisplay(paper.authors) }}</span>
       </el-col>
     </el-row>
+    <!-- Subjects Row -->
+    <el-row v-if="paper.subjects" class="paper-subjects-row">
+      <el-col :span="24" class="paper-subjects">
+        <span>Subjects: {{ paper.subjects }}</span>
+      </el-col>
+    </el-row>
 
-    <!-- Abstract, Gemini2.5flash and Overall_Idea tabs section -->
-    <el-row v-if="paper.abstract || (paper['gemini2.5flash'] && paper['gemini2.5flash'].trim()) || (paper['Overall_Idea'] && paper['Overall_Idea'].trim())" class="paper-content-row">
+    <!-- Abstract, Gemini2.5flash and overall_idea tabs section -->
+    <el-row v-if="paper.abstract || (paper['gemini2.5flash'] && paper['gemini2.5flash'].trim()) || (paper['overall_idea'] && paper['overall_idea'].trim())" class="paper-content-row">
       <el-col :span="24" class="paper-section">
         <!-- Tab headers -->
         <div class="tab-headers">
@@ -63,7 +69,7 @@
             Gemini2.5flash
           </button>
           <button 
-            v-if="paper['Overall_Idea'] && paper['Overall_Idea'].trim()"
+            v-if="paper['overall_idea'] && paper['overall_idea'].trim()"
             :class="['tab-button', { 'active': activeTab === 'overall' }]"
             @click="setActiveTab('overall')"
             @dblclick="toggleOverall(!isOverallExpanded)"
@@ -98,10 +104,10 @@
             </div>
           </div>
           
-          <!-- Overall_Idea content -->
-          <div v-if="activeTab === 'overall' && paper['Overall_Idea'] && paper['Overall_Idea'].trim()" class="tab-panel">
+          <!-- overall_idea content -->
+          <div v-if="activeTab === 'overall' && paper['overall_idea'] && paper['overall_idea'].trim()" class="tab-panel">
             <div :class="['overall-container', {'expanded': isOverallExpanded}]">
-              <div class="overall-text" v-html="renderMarkdown(paper['Overall_Idea'])"></div>
+              <div class="overall-text" v-html="renderMarkdown(paper['overall_idea'])"></div>
               <div class="abstract-buttons">
                 <button v-if="!isOverallExpanded" class="toggle-button more-button" @click="toggleOverall(true)">更多</button>
                 <button v-if="isOverallExpanded" class="toggle-button collapse-button" @click="toggleOverall(false)">收起</button>
@@ -182,7 +188,7 @@ export default {
       this.activeTab = 'abstract';
     } else if (this.paper['gemini2.5flash'] && this.paper['gemini2.5flash'].trim()) {
       this.activeTab = 'gemini';
-    } else if (this.paper['Overall_Idea'] && this.paper['Overall_Idea'].trim()) {
+    } else if (this.paper['overall_idea'] && this.paper['overall_idea'].trim()) {
       this.activeTab = 'overall';
     }
   },
@@ -554,5 +560,9 @@ export default {
   padding-left: 1em;
   margin: 0.5em 0;
   font-style: italic;
+}
+.paper-subjects {
+  font-size: 14px;
+  margin-bottom: 2px;
 }
 </style>

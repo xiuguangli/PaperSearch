@@ -1,0 +1,529 @@
+[
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 1,
+        "title": "NyxCache: Flexible and Efficient Multi-tenant Persistent Memory Caching",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/wu",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-wu.pdf",
+        "authors": [
+            "Kan Wu",
+            "Kaiwei Tu",
+            "Yuvraj Patel",
+            "Rathijit Sen",
+            "Kwanghyun Park",
+            "Andrea Arpaci-Dusseau",
+            "Remzi Arpaci-Dusseau"
+        ],
+        "abstract": "We present NyxCache (Nyx), an access regulation framework for multi-tenant persistent memory (PM) caching that supports light-weight access regulation, per-cache resource usage estimation and inter-cache interference analysis. With these mechanisms and existing admission control and capacity allocation logic, we build important sharing policies such as resource-limiting, QoS-awareness, fair slowdown, and proportional sharing: Nyx resource-limiting can accurately limit PM usage of each cache, providing up to 5x better performance isolation than a bandwidth-limiting method. Nyx QoS can provide QoS guarantees to latency-critical caches while providing higher throughput (up to 6x vs. previous DRAM-based approaches) to best-effort caches that are not interfering. Finally, we show that Nyx is useful for realistic workloads, isolating write-spikes and ensuring that important caches are not slowed down by increased best-effort traffic.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 2,
+        "title": "HTMFS: Strong Consistency Comes for Free with Hardware Transactional Memory in Persistent Memory File Systems",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/yi-htmfs",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-yi.pdf",
+        "authors": [
+            "Jifei Yi",
+            "Mingkai Dong",
+            "Fangnuo Wu",
+            "Haibo Chen"
+        ],
+        "abstract": "File system designs are usually a trade-off between performance and consistency. A common practice is to sacrifice data consistency for better performance, as if high performance and strong consistency cannot be achieved simultaneously. In this paper, we revisit the trade-off and propose HOP, a lightweight hardware-software cooperative mechanism, to present the feasibility of leveraging hardware transactional memory (HTM) to achieve both high performance and strong consistency in persistent memory (PM) ﬁle systems. The key idea of HOP is to pick the updates visible to the ﬁle system interface and warp them into HTM. HOP adopts an FS-aware Optimistic Concurrency Control (OCC)-like mechanism to overcome the HTM capacity limitation and utilizes cooperative locks as fallbacks to guarantee progress. We apply HOP to build HTMFS, a user-space PM ﬁle system with strong consistency. In the evaluation, HTMFS presents up to 8.4x performance improvement compared to state-of-the-art PM ﬁle systems, showing that strong consistency can be achieved in high-performance persistent memory.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 3,
+        "title": "ctFS: Replacing File Indexing with Hardware Memory Translation through Contiguous File Allocation for Persistent Memory",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/li",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-li.pdf",
+        "authors": [
+            "Ruibin Li",
+            "Xiang Ren",
+            "Xu Zhao",
+            "Siwei He",
+            "Michael Stumm",
+            "Ding Yuan"
+        ],
+        "abstract": "Persistent byte-addressable memory (PM) is poised to become prevalent in future computer systems. PMs are significantly faster than disk storage, and accesses to PMs are governed by the Memory Management Unit (MMU) just as accesses with volatile RAM. These unique characteristics shift the bottleneck from I/O to operations such as block address lookup – for example, in write workloads, up to 45% of the overhead in ext4-DAX is due to building and searching extent trees to translate file offsets to addresses on persistent memory. We propose a novel contiguous file system, ctFS, that eliminates most of the overhead associated with indexing structures such as extent trees in the file system. ctFS represents each file as a contiguous region of virtual memory, hence a lookup from the file offset to the address is simply an offset operation, which can be efficiently performed by the hardware MMU at a fraction of the cost of software maintained indexes. Evaluating ctFS on real-world workloads such as LevelDB shows it outperforms ext4-DAX and SplitFS by 3.6x and 1.8x, respectively.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 4,
+        "title": "FORD: Fast One-sided RDMA-based Distributed Transactions for Disaggregated Persistent Memory",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/zhang-ming",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-zhang-ming.pdf",
+        "authors": [
+            "Ming Zhang",
+            "Yu Hua",
+            "Pengfei Zuo",
+            "Lurong Liu"
+        ],
+        "abstract": "Persistent memory (PM) disaggregation improves the resource utilization and failure isolation to build a scalable and cost-effective remote memory pool. However, due to offering limited computing power and overlooking the bandwidth and persistence properties of real PMs, existing distributed transaction schemes, which are designed for legacy DRAM-based monolithic servers, fail to efficiently work in the disaggregated PM architecture. In this paper, we propose FORD, a Fast One-sided RDMA-based Distributed transaction system. FORD thoroughly leverages one-sided RDMA to handle transactions for bypassing the remote CPU in PM pool. To reduce the round trips, FORD batches the read and lock operations into one request to eliminate extra locking and validations. To accelerate the transaction commit, FORD updates all the remote replicas in a single round trip with parallel undo logging and data visibility control. Moreover, considering the limited PM bandwidth, FORD enables the backup replicas to be read to alleviate the load on the primary replicas, thus improving the throughput. To efficiently guarantee the remote data persistency in the PM pool, FORD selectively flushes data to the backup replicas to mitigate the network overheads. Experimental results demonstrate that FORD improves the transaction throughput by up to 2.3x and reduces the latency by up to 74.3% compared with the state-of-the-art systems.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 5,
+        "title": "Closing the B+-tree vs. LSM-tree Write Amplification Gap on Modern Storage Hardware with Built-in Transparent Compression",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/qiao",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-qiao.pdf",
+        "authors": [
+            "Yifan Qiao",
+            "Xubin Chen",
+            "Ning Zheng",
+            "Jiangpeng Li",
+            "Yang Liu",
+            "Tong Zhang"
+        ],
+        "abstract": "This paper studies how B+-tree could take full advantage of modern storage hardware with built-in transparent compression. Recent years witnessed significant interest in applying log-structured merge tree (LSM-tree) as an alternative to B+-tree, driven by the widely accepted belief that LSM-tree has distinct advantages in terms of storage cost and write amplification. This paper aims to revisit this belief upon the arrival of storage hardware with built-in transparent compression. Advanced storage appliances and emerging computational storage drives perform hardware-based lossless data compression, transparent to OS and user applications. Beyond straightforwardly reducing the storage cost gap between B+-tree and LSM-tree, such storage hardware creates new opportunities to re-think the implementation of B+-tree. This paper presents three simple design techniques that can leverage such modern storage hardware to significantly reduce the B+-tree write amplification. Experiments on a commercial storage drive with built-in transparent compression show that the proposed design techniques can reduce the B+-tree write amplification by over 10× . Compared with RocksDB (a key-value store built upon LSM-tree), the enhanced B+-tree implementation can achieve similar or even smaller write amplification.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 6,
+        "title": "TVStore: Automatically Bounding Time Series Storage via Time-Varying Compression",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/an",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-an.pdf",
+        "authors": [
+            "Yanzhe An",
+            "Yue Su",
+            "Yuqing Zhu",
+            "Jianmin Wang"
+        ],
+        "abstract": "A pressing demand emerges for storing extreme-scale time series data, which are widely generated by industry and research at an increasing speed. Automatically constraining data storage can lower expenses and improve performance, as well as saving storage maintenance efforts at the resource-constrained conditions. However, two challenges exist: 1) how to preserve data as much and as long as possible within the storage bound; and, 2) how to respect the importance of data that generally changes with data age. To address the above challenges, we propose time-varying compression that respects data values by compressing data to functions with time as input. Based on time-varying compression, we prove the fundamental design choices regarding when compression must be initiated to guarantee bounded storage. We implement a storage-bounded time series store TVStore based on an open-source time series database. Extensive evaluation results validate the storage-boundedness of TVStore and its time-varying pattern of compression on both synthetic and real-world data, as well as demonstrating its efficiency in writes and queries.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 7,
+        "title": "Removing Double-Logging with Passive Data Persistence in LSM-tree based Relational Databases",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/huang",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-huang.pdf",
+        "authors": [
+            "Kecheng Huang",
+            "Zhaoyan Shen",
+            "Zhiping Jia",
+            "Zili Shao",
+            "Feng Chen"
+        ],
+        "abstract": "Storage engine is a crucial component in relational databases (RDBs). With the emergence of Internet services and applications, a recent technical trend is to deploy a Log-structured Merge Tree (LSM-tree) based storage engine. Although such an approach can achieve high performance and efficient storage space usage, it also brings a critical double-logging problem——In LSM-tree based RDBs, both the upper RDB layer and the lower storage engine layer implement redundant logging facilities, which perform synchronous and costly I/Os for data persistence. Unfortunately, such “double protection” does not provide extra benefits but only incurs heavy and unnecessary performance overhead. In this paper, we propose a novel solution, called Passive Data Persistence Scheme (PASV), to address the double-logging problem in LSM-tree based RDBs. By completely removing Write-ahead Log (WAL) in the storage engine layer, we develop a set of mechanisms, including a passive memory buffer flushing policy, an epoch-based data persistence scheme, and an optimized partial data recovery process, to achieve reliable and low-cost data persistence during normal runs and also fast and efficient recovery upon system failures. We implement a fully functional, open-sourced prototype of PASV based on Facebook’s MyRocks. Evaluation results show that our solution can effectively improve system performance by increasing throughput by up to 49.9% and reducing latency by up to 89.3%, and it also saves disk I/Os by up to 42.9% and reduces recovery time by up to 4.8%.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 8,
+        "title": "Improving the Reliability of Next Generation SSDs using WOM-v Codes",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/jaffer",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-jaffer.pdf",
+        "authors": [
+            "Shehbaz Jaffer",
+            "Kaveh Mahdaviani",
+            "Bianca Schroeder"
+        ],
+        "abstract": "High density Solid State Drives, such as QLC drives, offer increased storage capacity, but a magnitude lower Program and Erase (P/E) cycles, limiting their endurance and hence usability. We present the design and implementation of non-binary, Voltage-Based Write-Once-Memory (WOM-v) Codes to improve the lifetime of QLC drives. First, we develop a FEMU based simulator test-bed to evaluate the gains of WOM-v codes on real world workloads. Second, we propose and implement two optimizations, an efficient garbage collection mechanism and an encoding optimization to drastically improve WOM-v code endurance without compromising performance. A careful evaluation, including microbenchmarks and trace-driven evaluation, demonstrates that WOM-v codes can reduce the Erase cycles for QLC drives by 4.4x-11.1x for real world workloads with minimal performance overheads resulting in improved QLC SSD lifetime.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 9,
+        "title": "GuardedErase: Extending SSD Lifetimes by Protecting Weak Wordlines",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/hong",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-hong.pdf",
+        "authors": [
+            "Duwon Hong",
+            "Myungsuk Kim",
+            "Geonhee Cho",
+            "Dusol Lee",
+            "Jihong Kim"
+        ],
+        "abstract": "3D NAND flash memory enables the continuous growth in the flash capacity by vertically stacking wordlines (WLs). However, as the number of WLs in a flash block increases, 3D NAND flash memory exhibits strong process variability among different WLs. This strong process variability, which causes a severe imbalance in the reliability of WLs in the same flash block, makes it difficult for an SSD to fully utilize the maximum endurance of flash blocks, thus significantly reducing the SSD lifetime. In this paper, we propose a new block erase scheme, called GuardedErase, that effectively mitigates the process variability problem within a 3D flash block so that the SSD can fully utilize the maximum endurance of flash blocks. The key mechanism of GuardedErase is to delay the wear-out speed of weak WLs by reducing an erase voltage applied to weak WLs, thus maximally delaying the time when the flash block becomes bad. In order to support the GuardedErase scheme, we suggest a new hardware design to selectively control different erase voltage levels to individual WLs. From an extensive characterization study using real 3D flash chips, we constructed a novel NAND endurance model under varying erase voltages at each WL. Using this endurance model, nine different GuardedErase modes are proposed to optimize the flash lifetime without degrading I/O performance from the reduced usable block capacity. Furthermore, exploiting the endurance-capacity trade-off of the proposed NAND endurance model, we have implemented the GuardedErase-aware FTL, called longFTL. Experimental results using various workloads show that longFTL can improve the SSD lifetime on average by 21% over an existing FTL with little degradation on the SSD performance.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 10,
+        "title": "Hardware/Software Co-Programmable Framework for Computational SSDs to Accelerate Deep Learning Service on Large-Scale Graphs",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/kwon",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-kwon.pdf",
+        "authors": [
+            "Miryeong Kwon",
+            "Donghyun Gouk",
+            "Sangwon Lee",
+            "Myoungsoo Jung"
+        ],
+        "abstract": "Graph neural networks (GNNs) process large-scale graphs consisting of a hundred billion edges. In contrast to traditional deep learning, unique behaviors of the emerging GNNs are engaged with a large set of graphs and embedding data on storage, which exhibits complex and irregular preprocessing. We propose a novel deep learning framework on large graphs, HolisticGNN, that provides an easy-to-use, near-storage inference infrastructure for fast, energy-efficient GNN processing. To achieve the best end-to-end latency and high energy efficiency, HolisticGNN allows users to implement various GNN algorithms and directly executes them where the actual data exist in a holistic manner. It also enables RPC over PCIe such that the users can simply program GNNs through a graph semantic library without any knowledge of the underlying hardware or storage configurations. We fabricate HolisticGNN's hardware RTL and implement its software on an FPGA-based computational SSD (CSSD). Our empirical evaluations show that the inference time of HolisticGNN outperforms GNN inference services using high-performance modern GPUs by 7.1x while reducing energy consumption by 33.2x, on average.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 11,
+        "title": "Operational Characteristics of SSDs in Enterprise Storage Systems: A Large-Scale Field Study",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/maneas",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-maneas.pdf",
+        "authors": [
+            "Stathis Maneas",
+            "Kaveh Mahdaviani",
+            "Tim Emami",
+            "Bianca Schroeder"
+        ],
+        "abstract": "As we increasingly rely on SSDs for our storage needs, it is important to understand their operational characteristics in the field, in particular since they vary from HDDs. This includes operational aspects, such as the level of write amplification experienced by SSDs in production systems and how it is affected by various factors; the effectiveness of wear leveling; or the rate at which drives in the field use up their program-erase (PE) cycle limit and what that means for the transition to future generations of flash with lower endurance. This paper presents the first large-scale field study of key operational characteristics of SSDs in production use based on a large population of enterprise storage systems covering almost 2 million SSDs of a major storage vendor (NetApp).",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 12,
+        "title": "Hydra : Resilient and Highly Available Remote Memory",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/lee",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-lee.pdf",
+        "authors": [
+            "Youngmoon Lee",
+            "Hasan Al Maruf",
+            "Mosharaf Chowdhury",
+            "Asaf Cidon",
+            "Kang G. Shin"
+        ],
+        "abstract": "We present Hydra, a low-latency, low-overhead, and highly available resilience mechanism for remote memory. Hydra can access erasure-coded remote memory within a single-digit μs read/write latency, significantly improving the performance-efficiency tradeoff over the state-of-the-art – it performs similar to in-memory replication with 1.6× lower memory overhead. We also propose CodingSets, a novel coding group placement algorithm for erasure-coded data, that provides load balancing while reducing the probability of data loss under correlated failures by an order of magnitude. With Hydra, even when only 50% memory is local, unmodified memory-intensive applications achieve performance close to that of the fully in-memory case in the presence of remote failures and outperforms the state-of-the-art remote-memory solutions by up to 4.35×.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 13,
+        "title": "MT^2: Memory Bandwidth Regulation on Hybrid NVM/DRAM Platforms",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/yi-mt2",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-yi_1.pdf",
+        "authors": [
+            "Jifei Yi",
+            "Benchao Dong",
+            "Mingkai Dong",
+            "Ruizhe Tong",
+            "Haibo Chen"
+        ],
+        "abstract": "Non-volatile memory (NVM) has emerged as a new memory media, resulting in a hybrid NVM/DRAM conﬁguration in typical servers. Memory-intensive applications competing for the scant memory bandwidth can yield degraded performance. Identifying the noisy neighbors and regulating the memory bandwidth usage of them can alleviate the contention and achieve better performance. This paper ﬁnds that bandwidth competition is more severe on hybrid platforms and can even signiﬁcantly degrade the total system bandwidth. Besides the absolute bandwidth, the competition is also highly correlated with the bandwidth type. Unfortunately, NVM and DRAM share the same memory bus, and their trafﬁc is mixed together and interferes with each other, making memory bandwidth regulation a challenge on hybrid NVM/DRAM platforms. This paper ﬁrst presents an analysis of memory trafﬁc interference and then introduces MT^2 to regulate memory bandwidth among concurrent applications on hybrid NVM/DRAM platforms. Speciﬁcally, MT^2 ﬁrst detects memory trafﬁc interference and monitors different types of memory bandwidth of applications from the mixed trafﬁc through hardware monitors and software reports. MT^2 then leverages a dynamic bandwidth throttling algorithm to regulate memory bandwidth with multiple mechanisms. To expose such a facility to applications, we integrate MT^2 into the cgroup mechanism by adding a new subsystem for memory bandwidth regulation. The evaluation shows that MT^2 can accurately identify the noisy neighbors, and the regulation on them allows other applications to improve performance by up to 2.6× compared to running with unrestricted noisy neighbors.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 14,
+        "title": "Aurogon: Taming Aborts in All Phases for Distributed In-Memory Transactions",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/jiang",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-jiang.pdf",
+        "authors": [
+            "Tianyang Jiang",
+            "Guangyan Zhang",
+            "Zhiyue Li",
+            "Weimin Zheng"
+        ],
+        "abstract": "Flourishing OLTP applications promote transaction systems to scale out to datacenter-level clusters. Benefiting from high scalability, timestamp ordering (T/O) approaches tend to win out from a number of concurrency control protocols. However, under workloads with skewed access patterns, transaction systems based on T/O approaches still suffer severe performance degradation due to frequent transaction aborts. We present Aurogon, a distributed in-memory transaction system that pursues taming aborts in all execution phases of a T/O protocol. The key idea of Aurogon is to mitigate request reordering, the major cause of transaction aborts in T/O-based systems, in all phases: in the timestamp allocation phase, Aurogon uses a clock synchronization mechanism called 2LClock to provide accurate distributed clocks; in the request transfer phase, Aurogon adopts an adaptive request deferral mechanism to alleviate the impact of nonuniform data access latency; in the request execution phase, Aurogon pre-attaches certain requests to target data in order to prevent these requests from being issued late. Our evaluation shows that Aurogon increases throughput by up to 4.1x and cuts transaction abort rate by up to 73% compared with three state-of-the-art distributed transaction systems.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 15,
+        "title": "DedupSearch: Two-Phase Deduplication Aware Keyword Search",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/elias",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-elias.pdf",
+        "authors": [
+            "Nadav Elias",
+            "Philip Shilane",
+            "Sarai Sheinvald",
+            "Gala Yadgar"
+        ],
+        "abstract": "Deduplication is widely used to effectively increase the logical capacity of large-scale storage systems, by replacing redundant chunks of data with references to their unique copies. As a result, the logical size of a storage system may be many multiples of the physical data size. The many-to-one relationship between logical references and physical chunks complicates many functionalities supported by traditional storage systems, but, at the same time, presents an opportunity to rethink and optimize others. We focus on the offline task of searching for one or more byte strings (keywords) in a large data repository. The traditional, naïve, search mechanism traverses the directory tree and reads the data chunks in the order in which they are referenced, fetching them from the underlying storage devices repeatedly if they are referenced multiple times. We propose the DedupSearch algorithm that operates in two phases: a physical phase that first scans the storage sequentially and processes each data chunk only once, recording keyword matches in a temporary result database, and a logical phase that then traverses the system’s metadata in its logical order, attributing matches within chunks to the files that contain them. The main challenge is to identify keywords that are split between logically adjacent chunks. To do that, the physical phase records keyword prefixes and suffixes at chunk boundaries, and the logical phase matches these substrings when processing the file’s metadata. We limit the memory usage of the result database by offloading records of tiny (one-character) partial matches to the SSD/HDD, and ensure that it is rarely accessed. We compare DedupSearch to the naïve algorithm on datasets of three different data types (text, code, and binaries), and show that it can reduce the overall search time by orders of magnitude.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 16,
+        "title": "DeepSketch: A New Machine Learning-Based Reference Search Technique for Post-Deduplication Delta Compression",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/park",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-park.pdf",
+        "authors": [
+            "Jisung Park",
+            "Jeonggyun Kim",
+            "Yeseong Kim",
+            "Sungjin Lee",
+            "Onur Mutlu"
+        ],
+        "abstract": "Data reduction in storage systems is an effective solution to minimize the management cost of a data center. To maximize data-reduction efficiency, prior works propose post-deduplication delta-compression techniques that perform delta compression along with traditional data deduplication and lossless compression. Compared to the two traditional techniques, delta compression could be more effective because it can provide large data reduction even for non-duplicate and high-entropy data by exploiting the similarity within stored data blocks. Unfortunately, we observe that existing post-deduplication delta-compression techniques achieve significantly lower data-reduction ratios than the optimal due to their limited accuracy in identifying similar data blocks. In this paper, we propose DeepSketch, a new reference search technique for post-deduplication delta compression that leverages the learning-to-hash method to achieve higher accuracy in reference search for delta compression, thereby improving data-reduction efficiency. DeepSketch uses a deep neural network to extract a data block's sketch, an approximate data signature of the block that can preserve similarity with other blocks. Our evaluation using eleven real-world workloads shows that DeepSketch improves the data-reduction ratio by up to 33% (21% on average) over a state-of-the-art post-deduplication delta-compression technique.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 17,
+        "title": "The what, The from, and The to: The Migration Games in Deduplicated Systems",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/kisous",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-kisous.pdf",
+        "authors": [
+            "Roei Kisous",
+            "Ariel Kolikant",
+            "Abhinav Duggal",
+            "Sarai Sheinvald",
+            "Gala Yadgar"
+        ],
+        "abstract": "Deduplication reduces the size of the data stored in large-scale storage systems by replacing duplicate data blocks with references to their unique copies. This creates dependencies between files that contain similar content, and complicates the management of data in the system. In this paper, we address the problem of data migration, where files are remapped between different volumes as a result of system expansion or maintenance. The challenge of determining which files and blocks to migrate has been studied extensively for systems without deduplication. In the context of deduplicated storage, however, only simplified migration scenarios were considered. In this paper, we formulate the general migration problem for deduplicated systems as an optimization problem whose objective is to minimize the system’s size while ensuring that the storage load is evenly distributed between the system’s volumes, and that the network traffic required for the migration does not exceed its allocation. We then present three algorithms for generating effective migration plans, each based on a different approach and representing a different tradeoff between computation time and migration efficiency. Our greedy algorithm provides modest space savings, but is appealing thanks to its exceptionally short runtime. Its results can be improved by using larger system representations. Our theoretically optimal algorithm formulates the migration problem as an ILP (integer linear programming) instance. Its migration plans consistently result in smaller and more balanced systems than those of the greedy approach, although its runtime is long and, as a result, the theoretical optimum is not always found. Our clustering algorithm enjoys the best of both worlds: its migration plans are comparable to those generated by the ILP-based algorithm, but its runtime is shorter, sometimes by an order of magnitude. It can be further accelerated at a modest cost in the quality of its results.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 18,
+        "title": "DUPEFS: Leaking Data Over the Network With Filesystem Deduplication Side Channels",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/bacs",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-bacs.pdf",
+        "authors": [
+            "Andrei Bacs",
+            "Saidgani Musaev",
+            "Kaveh Razavi",
+            "Cristiano Giuffrida",
+            "Herbert Bos"
+        ],
+        "abstract": "To reduce the storage footprint with increasing data volumes, modern filesystems internally use deduplication to store a single copy of a data deduplication record, even if it is used by multiple files. Unfortunately, its implementation in today’s advanced filesystems such as ZFS and Btrfs yields timing side channels that can reveal whether a chunk of data has been deduplicated. In this paper, we present the DUPEFS class of attacks to show that such side channels pose an unexpected security threat. In contrast to memory deduplication attacks, filesystem accesses are performed asynchronously to improve performance, which masks any potential signal due to deduplication. To complicate matters further, filesystem deduplication is often performed at large granularities, complicating high-entropy information leakage. To address these challenges, DUPEFS relies on carefully-crafted read/write operations that show exploitation is not only feasible, but that the signal can be amplified to mount byte-granular attacks over the network. We show attackers can leak sensitive data at the rate of ∼1.5 bytes per hour in a end-to-end remote attack, to leak a long-lived (critical) OAuth access token from the access log file of the nginx web server running on ZFS/HDD. Finally, we propose mitigations where read/write operations exhibit the same time-domain behavior, irrespective of the pre-existence of the data handled during the operation.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 19,
+        "title": "FusionFS: Fusing I/O Operations using CISCOps in Firmware File Systems",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/zhang-jian",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-zhang-jian.pdf",
+        "authors": [
+            "Jian Zhang",
+            "Yujie Ren",
+            "Sudarsun Kannan"
+        ],
+        "abstract": "We present FusionFS, a direct-access firmware-level in-storage filesystem that exploits the near-storage computational capability for fast I/O and data processing, consequently reducing I/O bottlenecks. In FusionFS, we introduce a new abstraction, CISCOps, that combines multiple I/O and data processing operations into one fused operation and offloaded for near-storage processing. By offloading, CISCOps significantly reduces dominant I/O overheads such as system calls, data movement, communication, and other software overheads. Further, to enhance the use of CISCOps, we introduce MicroTx for fine-grained crash consistency and fast (automatic) recovery of I/O and data processing operations. We also explore scheduling techniques to ensure fair and efficient use of in-storage compute and memory resources across tenants. Evaluation of FusionFS against the state-of-the-art user-level, kernel-level, and firmware-level file systems using microbenchmarks, macrobenchmarks, and real-world applications shows up to 6.12X, 5.09X and 2.07X performance gains, and 2.65X faster recovery for applications.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 20,
+        "title": "InfiniFS: An Efficient Metadata Service for Large-Scale Distributed Filesystems",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/lv",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-lv.pdf",
+        "authors": [
+            "Wenhao Lv",
+            "Youyou Lu",
+            "Yiming Zhang",
+            "Peile Duan",
+            "Jiwu Shu"
+        ],
+        "abstract": "Modern datacenters prefer one single ﬁlesystem instance that spans the entire datacenter and supports billions of ﬁles. The maintenance of ﬁlesystem metadata in such scenarios faces unique challenges, including load balancing while preserving locality, long path resolution, and near-root hotspots. To solve these challenges, we propose InfiniFS, an efﬁcient metadata service for extremely large-scale distributed ﬁlesystems. It includes three key techniques. First, InfiniFS decouples the access and content metadata of directories, so that the directory tree can be partitioned with both metadata locality and load balancing. Second, InfiniFS designs the speculative path resolution to traverse the path in parallel, which substantially reduces the latency of metadata operations. Third, InfiniFS introduces the optimistic access metadata cache on the client-side, to alleviate the near-root hotspot problem, which effectively improves the throughput of metadata operations. The extensive evaluation shows that InfiniFS outperforms state-of-the-art distributed ﬁlesystem metadata services in both latency and throughput, and provides stable performance for extremely large-scale directory trees with up to 100 billion ﬁles.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 21,
+        "title": "ScaleXFS: Getting scalability of XFS back on the ring",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/kim-dohyun",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-kim.pdf",
+        "authors": [
+            "Dohyun Kim",
+            "Kwangwon Min",
+            "Joontaek Oh",
+            "Youjip Won"
+        ],
+        "abstract": "This paper addresses the scalability issue of XFS journaling in the manycore system. In this paper, we first identify two primary causes for XFS scalability failure: the contention between in-memory logging and on-disk logging and the contention among the multiple concurrent in-memory loggings. We then propose three key techniques to address the scalability issues of XFS; (i) Double Committed Item List, (ii) Per-core In-memory Logging, and (iii) Strided Space Counting. Contention between the in-memory logging and the on-disk logging is mitigated using the Double Committed Item List. Contention among the in-memory logging operations is addressed with Per-core In-memory Logging. Strided Space Counting addresses the contention on updating the global journaling state. We call the newly developed filesystem ScaleXFS. In modified varmail workload, the latency of metadata operation, unlink(), decreases to 1/6th from 0.59 ms to 0.09 ms under 112 threads against stock XFS. The throughput of ScaleXFS corresponds to 1.5X, 2.2X, and 2.1X of the throughput of the stock XFS under varmail, dbench and mdtest, respectively.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 22,
+        "title": "exF2FS: Transaction Support in Log-Structured Filesystem",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/oh",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-oh.pdf",
+        "authors": [
+            "Joontaek Oh",
+            "Sion Ji",
+            "Yongjin Kim",
+            "Youjip Won"
+        ],
+        "abstract": "In this work, we develop a transactional log-structured filesystem. The proposed filesystem consists of three key technical ingredients; Membership-Oriented Transaction, Stealing support in the transaction, and Shadow Garbage Collection. Membership-Oriented Transaction allows the transaction to span multiple files where the application can explicitly specify the files associated with a transaction. Stealing enabled transaction allows the application to execute the transaction with a small amount of memory and to encapsulate a large number of updates, e.g., hundreds of files with tens of GByte size in total, with a single transaction. Shadow Garbage Collection allows the log-structured filesystem to perform the garbage collection without affecting the failure-atomicity of the ongoing transaction. We call a newly proposed filesystem as exF2FS, a variant of F2FS. A transaction support in exF2FS is carefully trimmed to meet the critical needs of the application while minimizing the code complexity and avoiding any performance side effect. With transaction support, exF2FS greatly simplifies the implementation of transaction that spans multiple files, e.g.~multi-file transaction in SQLite, compaction in RocksDB, and software installation. With exF2FS transaction, SQLite multi-file transaction throughput increases by 24x against the multi-file transaction of stock SQLite. RocksDB throughput increases by 87% when it implements the compaction as a filesystem transaction. exF2FS is fully compatible with F2FS.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 23,
+        "title": "A Log-Structured Merge Tree-aware Message Authentication Scheme for Persistent Key-Value Stores",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/kim-igjae",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-kim-igjae.pdf",
+        "authors": [
+            "Igjae Kim",
+            "J. Hyun Kim",
+            "Minu Chung",
+            "Hyungon Moon",
+            "Sam H. Noh"
+        ],
+        "abstract": "Persistent key-value stores (KVSs) are fundamental building blocks of modern software products. A KVS stores persistent states for the products in the form of objects associated with their keys. Confidential computing (e.g., Intel Software Guard Extensions (SGX)) can help KVS protect data from unwanted leaks or manipulation if the KVS is adapted to use the protected memory efficiently. The characteristics of KVSs accommodating a large volume of data amplify one of the well-known performance bottlenecks of SGX, the limited size of the protected memory. An existing mechanism, Speicher, applied common techniques to overcome this. However, its design decision does not scale because the required protected memory size increases rapidly as the KVS receives additional data, resulting from the design choice to hide the long latency of Merkle tree-based freshness verification. We find that the unique characteristics of the log-structured merge (LSM) tree, a data structure that most popular persistent KVSs have, help reduce the high cost of protected memory consumption. We design TWEEZER on top of this observation by extending RocksDB, one of the most popular open-source persistent KVSs. We compare the performance of TWEEZER with the reproduced version of Speicher. Our evaluation using the standard db_bench reveals that TWEEZER outperforms Speicher by 1.94~6.23x resulting in a reduction of slowdown due to confidential computing from 16~30x to 4~9x.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 24,
+        "title": "Practicably Boosting the Processing Performance of BFS-like Algorithms on Semi-External Graph System via I/O-Efficient Graph Ordering",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/yang",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-yang-tsun-yu.pdf",
+        "authors": [
+            "Tsun-Yu Yang",
+            "Yuhong Liang",
+            "Ming-Chang Yang"
+        ],
+        "abstract": "As graphs continue to grow to have billions of vertices and edges, the attention of graph processing is shifted from in-memory graph system to external graph system. Of the two the latter offers a cost-effective option for processing large-scale graphs on a single machine by holding the enormous graph data in both memory and storage. Although modern external graph systems embrace many advanced I/O optimization techniques and can perform well in general, graph algorithms that build upon Breadth-First Search (BFS) (a.k.a. BFS-like algorithms) still commonly suffer poor processing performance. The key reason is that the recursive vertex traversal nature of BFS may lead to poor I/O efficiency in loading the required graph data from storage for processing. Thus, this paper presents I/O-Efficient Graph Ordering (IOE-Order) to pre-process the graph data, while better I/O efficiency in loading storage-resident graph data can be delivered at runtime to boost the processing performance of BFS-like algorithms. Particularly, IOE-Order comprises two major pre-processing steps. The first is Breadth-First Degree-Second (BFDS) Ordering, which exploits both graph traversal pattern and degree information to store the vertices and edges which are most likely to be accessed together for I/O efficiency improvement. The second is Out-Degree Binning, which splits the BFDS-ordered graph into multiple sorted bins based on out-degrees of vertices so as to 1) further increase I/O-efficiency for runtime graph processing and 2) deliver high flexibility in pre-caching vertices based on the memory availability. In contrast to the state-of-the-art pre-processing techniques for BFS-like algorithms, IOE-Order demonstrates better efficiency and practicability: It delivers higher processing performance by achieving higher I/O efficiency but entails much lower pre-processing overhead.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 25,
+        "title": "DEPART: Replica Decoupling for Distributed Key-Value Storage",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/zhang-qiang",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-zhang-qiang.pdf",
+        "authors": [
+            "Qiang Zhang",
+            "Yongkun Li",
+            "Patrick P. C. Lee",
+            "Yinlong Xu",
+            "Si Wu"
+        ],
+        "abstract": "Modern distributed key-value (KV) stores adopt replication for fault tolerance by distributing replicas of KV pairs across nodes. However, existing distributed KV stores often manage all replicas in the same index structure, thereby leading to significant I/O costs beyond the replication redundancy. We propose a notion called replica decoupling, which decouples the storage management of the primary and redundant copies of replicas, so as to not only mitigate the I/O costs in indexing, but also provide tunable performance. In particular, we design a novel two-layer log that enables tunable ordering for the redundant copies to achieve balanced read/write performance. We implement a distributed KV store prototype, DEPART, atop Cassandra. Experiments show that DEPART outperforms Cassandra in all performance aspects under various consistency levels and parameter settings. Specifically, under the eventual consistency setting, DEPART achieves up to 1.43x, 2.43x, 2.68x, and 1.44x throughput for writes, reads, scans, and updates, respectively.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 26,
+        "title": "PAIO: General, Portable I/O Optimizations With Minor Application Modifications",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/macedo",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-macedo.pdf",
+        "authors": [
+            "Ricardo Macedo",
+            "Yusuke Tanimura",
+            "Jason Haga",
+            "Vijay Chidambaram",
+            "José Pereira",
+            "João Paulo"
+        ],
+        "abstract": "We present PAIO, a framework that allows developers to implement portable I/O policies and optimizations for different applications with minor modifications to their original code base. The chief insight behind PAIO is that if we are able to intercept and differentiate requests as they flow through different layers of the I/O stack, we can enforce complex storage policies without significantly changing the layers themselves. PAIO adopts ideas from the Software-Defined Storage community, building data plane stages that mediate and optimize I/O requests across layers and a control plane that coordinates and fine-tunes stages according to different storage policies. We demonstrate the performance and applicability of PAIO with two use cases. The first improves 99th percentile latency by 4x in industry-standard LSM-based key-value stores. The second ensures dynamic per-application bandwidth guarantees under shared storage environments.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 27,
+        "title": "Separating Data via Block Invalidation Time Inference for Write Amplification Reduction in Log-Structured Storage",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/wang",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-wang.pdf",
+        "authors": [
+            "Qiuping Wang",
+            "Jinhong Li",
+            "Patrick P. C. Lee",
+            "Tao Ouyang",
+            "Chao Shi",
+            "Lilong Huang"
+        ],
+        "abstract": "Log-structured storage has been widely deployed in various domains of storage systems, yet its garbage collection incurs write amplification (WA) due to the rewrites of live data. We show that there exists an optimal data placement scheme that minimizes WA using the future knowledge of block invalidation time (BIT) of each written block, yet it is infeasible to realize in practice. We propose a novel data placement algorithm for reducing WA, SepBIT, that aims to infer the BITs of written blocks from storage workloads and separately place the blocks into groups with similar estimated BITs. We show via both mathematical and production trace analyses that SepBIT effectively infers the BITs by leveraging the write skewness property in practical storage workloads. Trace analysis and prototype experiments show that SepBIT reduces WA and improves I/O throughput, respectively, compared with state-of-the-art data placement schemes. SepBIT is currently deployed to support the log-structured block storage management at Alibaba Cloud.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2022",
+        "order": 28,
+        "title": "CacheSifter: Sifting Cache Files for Boosted Mobile Performance and Lifetime",
+        "subjects": "USENIX-Fast.2022",
+        "original_url": "https://www.usenix.org/conference/fast22/presentation/liang",
+        "pdf_url": "https://www.usenix.org/system/files/fast22-liang.pdf",
+        "authors": [
+            "Yu Liang",
+            "Riwei Pan",
+            "Tianyu Ren",
+            "Yufei Cui",
+            "Rachata Ausavarungnirun",
+            "Xianzhang Chen",
+            "Changlong Li",
+            "Tei-Wei Kuo",
+            "Chun Jason Xue"
+        ],
+        "abstract": "Mobile applications often maintain downloaded data as cache files in local storage for a better user experience. These cache files occupy a large portion of writes to mobile flash storage and have a significant impact on the performance and lifetime of mobile devices. Different from current practice, this paper proposes a novel framework, named CacheSifter, to differentiate cache files and treat cache files based on their reuse behaviors and main-memory/storage usages. Specifically, CacheSifter classifies cache files into three categories online and greatly reduces the number of writebacks on flash by dropping cache files that most likely will not be reused. We implement CacheSifter on real Android devices and evaluate it over representative applications. Experimental results show that CacheSifter reduces the writebacks of cache files by an average of 62% and 59.5% depending on the ML models, and the I/O intensive write performance of mobile devices could be improved by an average of 18.4% and 25.5%, compared to treating cache files equally.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    }
+]

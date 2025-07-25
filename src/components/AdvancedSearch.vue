@@ -317,66 +317,47 @@ export default {
     
     // 从配置文件加载可用的会议和年份
     async scanAvailableDatasets() {
-      try {
-        console.log('开始从配置文件加载会议和年份信息...');
-
-        const datasets = [];
-        const conferencesSet = new Set();
-        const yearsSet = new Set();
-
-        // 从配置文件加载会议和年份信息
-        const response = await fetch(`${import.meta.env.BASE_URL}data/conferences.json`);
-
-        if (!response.ok) {
-          throw new Error(`无法加载会议配置文件: ${response.status}`);
-        }
-
-        const config = await response.json();
-
-        if (!config.conferences) {
-          throw new Error('配置文件格式不正确，缺少conferences字段');
-        }
-
-        console.log('已加载会议配置:', config);
-
-        // 保存完整的会议配置
-        this.conferencesConfig = config.conferences;
-
-        // 处理配置文件中的会议和年份
-        for (const [conference, years] of Object.entries(config.conferences)) {
-          conferencesSet.add(conference);
-
-          for (const year of years) {
-            const yearStr = year.toString();
-            yearsSet.add(yearStr);
-
-            datasets.push({
-              conference: conference,
-              year: yearStr,
-              filename: `${conference}.${yearStr}.json`
-            });
-          }
-        }
-
-        console.log('配置加载完成，可用数据集数量:', datasets.length);
-
-        // 更新会议和年份列表
-        this.conferences = Array.from(conferencesSet).sort();
-        this.years = Array.from(yearsSet).sort((a, b) => parseInt(b) - parseInt(a)); // 降序排列
-        this.availableDatasets = datasets;
-
-        console.log('可用会议:', this.conferences);
-        console.log('可用年份:', this.years);
-
-        // 如果没有找到任何数据集
-        if (datasets.length === 0) {
-          throw new Error('配置文件中未定义任何数据集');
-        }
-      } catch (error) {
-        console.error('加载会议和年份信息失败:', error);
-        this.error = "无法加载会议和年份信息。请刷新页面重试。";
-        throw error;
+      // 会议名从 conferences.json 读取，年份写死
+      const response = await fetch(`${import.meta.env.BASE_URL}data/conferences.json`);
+      if (!response.ok) {
+        throw new Error(`无法加载会议配置文件: ${response.status}`);
       }
+      const config = await response.json();
+      if (!config.conferences || !Array.isArray(config.conferences)) {
+        throw new Error('配置文件格式不正确，缺少conferences字段');
+      }
+      const conferenceList = config.conferences;
+      // 生成从2022到当前年份的年份数组
+      const currentYear = new Date().getFullYear();
+      const yearList = [];
+      for (let y = 2022; y <= currentYear; y++) {
+        yearList.push(y);
+      }
+
+      const conferencesConfig = {};
+      const datasets = [];
+      const conferencesSet = new Set();
+      const yearsSet = new Set();
+
+      for (const conf of conferenceList) {
+        conferencesConfig[conf] = [];
+        for (const year of yearList) {
+          conferencesConfig[conf].push(year);
+          const yearStr = year.toString();
+          yearsSet.add(yearStr);
+          conferencesSet.add(conf);
+          datasets.push({
+            conference: conf,
+            year: yearStr,
+            filename: `${conf}.${yearStr}.json`
+          });
+        }
+      }
+
+      this.conferencesConfig = conferencesConfig;
+      this.conferences = Array.from(conferencesSet).sort();
+      this.years = Array.from(yearsSet).sort((a, b) => parseInt(b) - parseInt(a)); // 降序排列
+      this.availableDatasets = datasets;
     },
 
     // 搜索论文
@@ -521,12 +502,12 @@ export default {
         if (cachedData) {
           const data = JSON.parse(cachedData);
 
-          if (data && Array.isArray(data.papers)) {
+          if (data && Array.isArray(data)) {
             // 将论文添加到总列表中
-            this.allPapers = [...this.allPapers, ...data.papers];
+            this.allPapers = [...this.allPapers, ...data];
             // 标记这个数据集已加载
             this.loadedDatasets.add(datasetKey);
-            console.log(`从缓存成功加载 ${conference} ${year} 的数据，论文数量: ${data.papers.length}`);
+            console.log(`从缓存成功加载 ${conference} ${year} 的数据，论文数量: ${data.length}`);
           }
         }
       } catch (error) {
@@ -558,12 +539,12 @@ export default {
 
         const data = await response.json();
 
-        if (data && Array.isArray(data.papers)) {
+        if (data && Array.isArray(data)) {
           // 将论文添加到总列表中
-          this.allPapers = [...this.allPapers, ...data.papers];
+          this.allPapers = [...this.allPapers, ...data];
           // 标记这个数据集已加载
           this.loadedDatasets.add(datasetKey);
-          console.log(`成功加载 ${conference} ${year} 的数据，论文数量: ${data.papers.length}`);
+          console.log(`成功加载 ${conference} ${year} 的数据，论文数量: ${data.length}`);
 
           // 缓存数据
           try {

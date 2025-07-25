@@ -421,20 +421,26 @@ export default {
       this.error = null;
 
       try {
-        // 加载会议配置
+        // 会议名从 conferences.json 读取，年份写死
         const response = await fetch(`${import.meta.env.BASE_URL}data/conferences.json`);
-
         if (!response.ok) {
           throw new Error(`无法加载会议配置: ${response.status}`);
         }
-
         const config = await response.json();
-
-        if (!config.conferences) {
+        if (!config.conferences || !Array.isArray(config.conferences)) {
           throw new Error('配置文件格式不正确');
         }
+        const conferenceList = config.conferences;
+        const yearList = [2022, 2023, 2024, 2025];
 
-        this.conferencesConfig = config.conferences;
+        const conferencesConfig = {};
+        for (const conf of conferenceList) {
+          conferencesConfig[conf] = [];
+          for (const year of yearList) {
+            conferencesConfig[conf].push(year);
+          }
+        }
+        this.conferencesConfig = conferencesConfig;
 
         // 加载各会议的数据
         await this.loadConferenceData();
