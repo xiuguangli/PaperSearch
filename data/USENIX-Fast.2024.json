@@ -1,0 +1,459 @@
+[
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 1,
+        "title": "TeRM: Extending RDMA-Attached Memory with SSD",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/yang-zhe",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-yang-zhe.pdf",
+        "authors": [
+            "Zhe Yang",
+            "Qing Wang",
+            "Xiaojian Liao",
+            "Youyou Lu",
+            "Keji Huang",
+            "Jiwu Shu"
+        ],
+        "abstract": "RDMA-based in-memory storage systems offer high performance but are restricted by the capacity of physical memory. In this paper, we propose TeRM to extend RDMA-attached memory with SSD. TeRM achieves fast remote access on the SSD-extended memory by eliminating page faults of RDMA NIC and CPU from the critical path. We also introduce a set of techniques to reduce the consumption of CPU and network resources. Evaluation shows that TeRM performs close to the performance of the ideal upper bound where all pages are pinned in the physical memory. Compared with existing approaches TeRM significantly improves the performance of unmodified RDMA-based storage systems, including a file system and a key-value system.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 2,
+        "title": "Combining Buffered I/O and Direct I/O in Distributed File Systems",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/qian",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-qian.pdf",
+        "authors": [
+            "Yingjin Qian",
+            "Marc-André Vef",
+            "Patrick Farrell",
+            "Andreas Dilger",
+            "Xi Li",
+            "Shuichi Ihara",
+            "Yinjin Fu",
+            "Wei Xue",
+            "André Brinkmann"
+        ],
+        "abstract": "Direct I/O allows I/O requests to bypass the Linux page cache and was introduced over 20 years ago as an alternative to the default buffered I/O mode. However, high-performance computing (HPC) applications still mostly rely on buffered I/O, even if direct I/O could perform better in a given situation. This is because users tend to use the I/O mode they are most familiar with. Moreover, with complex distributed file systems and applications, it is often unclear which I/O mode to use. In this paper, we show under which conditions both I/O modes are beneficial and present a new transparent approach that dynamically switches to each I/O mode within the file system. Its decision is based not only on the I/O size but also on file lock contention and memory constraints. We exemplary implemented our design into the Lustre client and server and extended it with additional features, e.g., delayed allocation. Under various conditions and real-world workloads, our approach achieved up to 3× higher throughput than the original Lustre and outperformed other distributed file systems that include varying degrees of direct I/O support by up to 13×.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 3,
+        "title": "OmniCache: Collaborative Caching for Near-storage Accelerators",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/zhang-jian",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-zhang-jian.pdf",
+        "authors": [
+            "Jian Zhang",
+            "Yujie Ren",
+            "Marie Nguyen",
+            "Changwoo Min",
+            "Sudarsun Kannan"
+        ],
+        "abstract": "We propose OmniCache, a novel caching design for near-storage accelerators that combines near-storage and host memory capabilities to accelerate I/O and data processing. First, OmniCache introduces a \"near-cache\" approach, maximizing data access to the nearest cache for I/O and processing operations. Second, OmniCache presents collaborative caching for concurrent I/O and data processing using host and device caches. Third, OmniCache incorporates a dynamic model-driven offloading support, which actively monitors hardware and software metrics for efficient processing across host and device processors. Finally, OmniCache explores the extensibility of the newly introduced CXL, a memory expansion technology. Evaluation of OmniCache demonstrates significant performance gains of up to 3.24X for I/O workloads and 3.06X for data processing workloads.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 4,
+        "title": "Symbiosis: The Art of Application and Kernel Cache Cooperation",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/dai",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-dai.pdf",
+        "authors": [
+            "Yifan Dai",
+            "Jing Liu",
+            "Andrea Arpaci-Dusseau",
+            "Remzi Arpaci-Dusseau"
+        ],
+        "abstract": "We introduce Symbiosis, a framework for key-value storage systems that dynamically configures application and kernel cache sizes to improve performance. We integrate Symbiosis into three production systems — LevelDB, WiredTiger, and RocksDB — and, through a series of experiments on various read-heavy workloads and environments, show that Symbiosis improves performance by 1.5× on average and over 5× at best compared to static configurations, across a wide range of synthetic and real-world workloads.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 5,
+        "title": "Optimizing File Systems on Heterogeneous Memory by Integrating DRAM Cache with Virtual Memory Management",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/liu-yubo",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-liu-yubo.pdf",
+        "authors": [
+            "Yubo Liu",
+            "Yuxin Ren",
+            "Mingrui Liu",
+            "Hongbo Li",
+            "Hanjun Guo",
+            "Xie Miao",
+            "Xinwei Hu",
+            "Haibo Chen"
+        ],
+        "abstract": "This paper revisits the usage of DRAM cache in DRAM-PM heterogeneous memory file systems. With a comprehensive analysis of existing file systems with cache-based and DAX-based designs, we show that both suffer from suboptimal performance due to excessive data movement. To this end, this paper presents a cache management layer atop heterogeneous memory, namely FLAC, which integrates DRAM cache with virtual memory management. FLAC is further incorporated with two techniques called zero-copy caching and parallel-optimized cache management, which facilitates fast data transfer between file systems and applications as well as efficient data synchronization/migration between DRAM and PM. We further design and implement a library file system upon FLAC, called FlacFS. Micro benchmarks show that FlacFS provides up to two orders of magnitude performance improvement over existing file systems in file read/write. With real-world applications, FlacFS achieves up to 10.6 and 9.9 times performance speedup over state-of-the-art DAX-based and cache-based file systems, respectively.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 6,
+        "title": "Kosmo: Efficient Online Miss Ratio Curve Generation for Eviction Policy Evaluation",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/shakiba",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-shakiba.pdf",
+        "authors": [
+            "Kia Shakiba",
+            "Sari Sultan",
+            "Michael Stumm"
+        ],
+        "abstract": "In-memory caches play an important role in reducing the load on backend storage servers for many workloads. Miss ratio curves (MRCs) are an important tool for configuring these caches with respect to cache size and eviction policy. MRCs provide insight into the trade-off between cache size (and thus costs) and miss ratio for a specific eviction policy. Over the years, many MRC-generation algorithms have been developed. However, to date, only Miniature Simulations is capable of efficiently generating MRCs for popular eviction policies, such as Least Frequently Used (LFU), First-In-First-Out (FIFO), 2Q, and Least Recently/Frequently Used (LRFU), that do not adhere to the inclusion property. One critical downside of Miniature Simulations is that it incurs significant memory overhead, precluding its use for online cache analysis at runtime in many cases. In this paper, we introduce Kosmo, an MRC generation algorithm that allows for the simultaneous generation of MRCs for a variety of eviction policies that do not adhere to the inclusion property. We evaluate Kosmo using 52 publicly-accessible cache access traces with a total of roughly 126 billion accesses. Compared to Miniature Simulations configured with 100 simulated caches, Kosmo has lower memory overhead by a factor of 3.6 on average, and as high as 36, and a higher throughput by a factor of 1.3 making it far more suitable for online MRC generation.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 7,
+        "title": "I/O Passthru: Upstreaming a flexible and efficient I/O Path in Linux",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/joshi",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-joshi.pdf",
+        "authors": [
+            "Kanchan Joshi",
+            "Anuj Gupta",
+            "Javier González",
+            "Ankit Kumar",
+            "Krishna Kanth Reddy",
+            "Arun George",
+            "Simon Lund",
+            "Jens Axboe"
+        ],
+        "abstract": "New storage interfaces continue to emerge fast on Non-Volatile Memory Express (NVMe) storage. Fitting these innovations in the general-purpose I/O stack of operating systems has been challenging and time-consuming. The NVMe standard is no longer limited to block-I/O, but the Linux I/O advances historically centered around the block-I/O path. The lack of scalable OS interfaces risks the adoption of the new storage innovations. We introduce I/O Passthru, a new I/O Path that has made its way into the mainline Linux Kernel. The key ingredients of this new path are NVMe char interface and io_uring command. In this paper, we present our experience building and upstreaming I/O Passthru and report on how this helps to consume new NVMe innovations without changes to the Linux kernel. We provide experimental results to (i) compare its efficiency against existing io_uring block path and (ii) demonstrate its flexibility by integrating data placement into Cachelib. FIO peak performance workloads show 16–40% higher IOPS than block path.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 8,
+        "title": "Metis: File System Model Checking via Versatile Input and State Exploration",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/liu-yifei",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-liu-yifei.pdf",
+        "authors": [
+            "Yifei Liu",
+            "Manish Adkar",
+            "Gerard Holzmann",
+            "Geoff Kuenning",
+            "Pei Liu",
+            "Scott A. Smolka",
+            "Wei Su",
+            "Erez Zadok"
+        ],
+        "abstract": "We present Metis, a model-checking framework designed for versatile, thorough, yet configurable file system testing in the form of input and state exploration. It uses a nondeterministic loop and a weighting scheme to decide which system calls and their arguments to execute. Metis features a new abstract state representation for file-system states in support of efficient and effective state exploration. While exploring states, it compares the behavior of a file system under test against a reference file system and reports any discrepancies; it also provides support to investigate and reproduce any that are found. We also developed RefFS, a small, fast file system that serves as a reference, with special features designed to accelerate model checking and enhance bug reproducibility. Experimental results show that Metis can flexibly generate test inputs; also the rate at which it explores file-system states scales nearly linearly across multiple nodes. RefFS explores states 3–28× faster than other, more mature file systems. Metis aided the development of RefFS, reporting 11 bugs that we subsequently fixed. Metis further identified 12 bugs from five other file systems, five of which were confirmed and with one fixed and integrated into Linux.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 9,
+        "title": "RFUSE: Modernizing Userspace Filesystem Framework through Scalable Kernel-Userspace Communication",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/cho",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-cho.pdf",
+        "authors": [
+            "Kyu-Jin Cho",
+            "Jaewon Choi",
+            "Hyungjoon Kwon",
+            "Jin-Soo Kim"
+        ],
+        "abstract": "With the advancement of storage devices and the increasing scale of data, filesystem design has transformed in response to this progress. However, implementing new features within an in-kernel filesystem is a challenging task due to development complexity and code security concerns. As an alternative, userspace filesystems are gaining attention, owing to their ease of development and reliability. FUSE is a renowned framework that allows users to develop custom filesystems in userspace. However, the complex internal stack of FUSE leads to notable performance overhead, which becomes even more prominent in modern hardware environments with high-performance storage devices and a large number of cores. In this paper, we present RFUSE, a novel userspace filesystem framework that utilizes scalable message communication between the kernel and userspace. RFUSE employs a per-core ring buffer structure as a communication channel and effectively minimizes transmission overhead caused by context switches and request copying. Furthermore, RFUSE enables users to utilize existing FUSE-based filesystems without making any modifications. Our evaluation results indicate that RFUSE demonstrates comparable throughput to in-kernel filesystems on high-performance devices while exhibiting high scalability in both data and metadata operations.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 10,
+        "title": "The Design and Implementation of a Capacity-Variant Storage System",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/jiao",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-jiao.pdf",
+        "authors": [
+            "Ziyang Jiao",
+            "Xiangqun Zhang",
+            "Hojin Shin",
+            "Jongmoo Choi",
+            "Bryan S. Kim"
+        ],
+        "abstract": "We present the design and implementation of a capacity-variant storage system (CVSS) for flash-based solid-state drives (SSDs). CVSS aims to maintain high performance throughout the lifetime of an SSD by allowing storage capacity to gracefully reduce over time, thus preventing fail-slow symptoms. The CVSS comprises three key components (1) CV-SSD, an SSD that minimizes write amplification and gracefully reduces its exported capacity with age; (2) CV-FS, a log-structured file system for elastic logical partition; and (3) CV-manager, a user-level program that orchestrates system components based on the state of the storage system. We demonstrate the effectiveness of CVSS with synthetic and real workloads, showing significant improvements in latency, throughput, and lifetime compared to a fixed-capacity storage system. Specifically, under real workloads, CVSS reduces the latency, improves the throughput, and extends the lifetime by 8–53%, 49–316%, and 268–327%, respectively.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 11,
+        "title": "I/O in a Flash: Evolution of ONTAP to Low-Latency SSDs",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/curtis-maury",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-curtis-maury.pdf",
+        "authors": [
+            "Matthew Curtis-Maury",
+            "Ram Kesavan",
+            "Bharadwaj V R",
+            "Nikhil Mattankot",
+            "Vania Fang",
+            "Yash Trivedi",
+            "Kesari Mishra",
+            "Qin Li"
+        ],
+        "abstract": "Flash-based persistent storage media are capable of sub-millisecond latency I/O. However, a storage architecture optimized for spinning drives may contain software delays that make it impractical for use with such media. The NetApp® ONTAP® storage system was designed originally for spinning drives, and needed alterations before it was productized as an all-SSD system. In this paper, we focus on the changes made to the read I/O path over the last several years, which have been crucial to this transformation, and present them in chronological fashion together with the associated performance analysis.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 12,
+        "title": "We Ain't Afraid of No File Fragmentation: Causes and Prevention of Its Performance Impact on Modern Flash SSDs",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/jun",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-jun.pdf",
+        "authors": [
+            "Yuhun Jun",
+            "Shinhyun Park",
+            "Jeong-Uk Kang",
+            "Sang-Hoon Kim",
+            "Euiseong Seo"
+        ],
+        "abstract": "A few studies reported that fragmentation still adversely affects the performance of flash solid-state disks (SSDs) particularly through request splitting. This research investigates the fragmentation-induced performance degradation across three levels: kernel I/O path, host-storage interface, and flash memory accesses in SSDs. Our analysis reveals that, contrary to assertions in existing literature, the primary cause of the degraded performance is not due to request splitting but stems from a significant increase in die-level collisions. In SSDs, when other writes come between writes of neighboring file blocks, the file blocks are not placed on consecutive dies, resulting in random die allocation. This randomness escalates the chances of die-level collisions, causing deteriorated read performance later. We also reveal that this may happen when a file is overwritten. To counteract this, we propose an NVMe command extension combined with a page-to-die allocation algorithm designed to ensure that contiguous blocks always land on successive dies, even in the face of file fragmentation or overwrites. Evaluations with commercial SSDs and an SSD emulator indicate that our approach effectively curtails the read performance drop arising from both fragmentation and overwrites, all without the need for defragmentation. Representatively, when a 162 MB SQLite database was fragmented into 10,011 pieces, our approach limited the performance drop to 3.5%, while the conventional system experienced a 40% decline.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 13,
+        "title": "In-Memory Key-Value Store Live Migration with NetMigrate",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/zhu",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-zhu.pdf",
+        "authors": [
+            "Zeying Zhu",
+            "Yibo Zhao",
+            "Zaoxing Liu"
+        ],
+        "abstract": "Distributed key-value stores today require frequent key-value shard migration between nodes to react to dynamic workload changes for load balancing, data locality, and service elasticity. In this paper, we propose NetMigrate, a live migration approach for in-memory key-value stores based on programmable network data planes. NetMigrate migrates shards between nodes with zero service interruption and minimal performance impact. During migration, the switch data plane monitors the migration process in a fine-grained manner and directs client queries to the right server in real time, eliminating the overhead of pulling data between nodes. We implement a NetMigrate prototype on a testbed consisting of a programmable switch and several commodity servers running Redis, and evaluate it under YCSB workloads. Our experiments demonstrate that NetMigrate improves the query throughput from 6.5% to 416% and maintains low access latency during migration, compared to the state-of-the-art migration approaches.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 14,
+        "title": "IONIA: High-Performance Replication for Modern Disk-based KV Stores",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/xu",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-xu.pdf",
+        "authors": [
+            "Yi Xu",
+            "Henry Zhu",
+            "Prashant Pandey",
+            "Alex Conway",
+            "Rob Johnson",
+            "Aishwarya Ganesan",
+            "Ramnatthan Alagappan"
+        ],
+        "abstract": "We introduce IONIA, a novel replication protocol tailored for modern SSD-based write-optimized key-value (WO-KV) stores. Unlike existing replication approaches, IONIA carefully exploits the unique characteristics of SSD-based WO-KV stores. First, it exploits their interface characteristics to defer parallel execution to the background, enabling high-throughput yet one round trip (RTT) writes. IONIA also exploits SSD-based KV-stores’ performance characteristics to scalably read at any replica without enforcing writes to all replicas, thus providing scalability without compromising write availability; further, it does so while completing most reads in 1RTT. IONIA is the first protocol to achieve these properties, and it does so through its storage-aware design. We evaluate IONIA extensively to show that it achieves the above properties under a variety of workloads.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 15,
+        "title": "Physical vs. Logical Indexing with IDEA: Inverted Deduplication-Aware Index",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/levi",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-levi.pdf",
+        "authors": [
+            "Asaf Levi",
+            "Philip Shilane",
+            "Sarai Sheinvald",
+            "Gala Yadgar"
+        ],
+        "abstract": "In the realm of information retrieval, the need to maintain reliable term-indexing has grown more acute in recent years, with vast amounts of ever-growing online data searched by a large number of search-engine users and used for data mining and natural language processing. At the same time, an increasing portion of primary storage systems employ data deduplication, where duplicate logical data chunks are replaced with references to a unique physical copy. We show that indexing deduplicated data with deduplication-oblivious mechanisms might result in extreme inefficiencies: the index size would increase in proportion to the logical data size, regardless of its duplication ratio, consuming excessive storage and memory and slowing down lookups. In addition, the logically sequential accesses during index creation would be transformed into random and redundant accesses to the physical chunks. Indeed, to the best of our knowledge, term indexing is not supported by any deduplicating storage system. In this paper, we propose the design of a deduplication-aware term-index that addresses these challenges. IDEA maps terms to the unique chunks that contain them, and maps each chunk to the files in which it is contained. This basic design concept improves the index performance and can support advanced functionalities such as inline indexing, result ranking, and proximity search. Our prototype implementation based on Lucene (the search engine at the core of Elasticsearch) shows that IDEA can reduce the index size and indexing time by up to 73% and 94%, respectively, and reduce term-lookup latency by up to 82% and 59% for single and multi-term queries, respectively.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 16,
+        "title": "MIDAS: Minimizing Write Amplification in Log-Structured Systems through Adaptive Group Number and Size Configuration",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/oh",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-oh.pdf",
+        "authors": [
+            "Seonggyun Oh",
+            "Jeeyun Kim",
+            "Soyoung Han",
+            "Jaeho Kim",
+            "Sungjin Lee",
+            "Sam H. Noh"
+        ],
+        "abstract": "Log-structured systems are widely used in various applications because of its high write throughput. However, high garbage collection (GC) cost is widely regarded as the primary obstacle for its wider adoption. There have been numerous attempts to alleviate GC overhead, but with ad-hoc designs. This paper introduces MiDAS that minimizes GC overhead in a systematic and analytic manner. It employs a chain-like structure of multiple groups, automatically segregating data blocks by age. It employs analytical models, Update Interval Distribution (UID) and Markov-Chain-based Analytical Model (MCAM), to dynamically adjust the number of groups as well as their sizes according to the workload I/O patterns, thereby minimizing the movement of data blocks. Furthermore, MiDAS isolates hot blocks into a dedicated HOT group, where the size of HOT is dynamically adjusted according to the workload to minimize overall WAF. Our experiments using simulations and a proof-of-concept prototype for flash-based SSDs show that MiDAS outperforms state-of-the-art GC techniques, offering 25% lower WAF and 54% higher throughput, while consuming less memory and CPU cycles.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 17,
+        "title": "What's the Story in EBS Glory: Evolutions and Lessons in Building Cloud Block Store",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/zhang-weidong",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-zhang-weidong.pdf",
+        "authors": [
+            "Weidong Zhang",
+            "Erci Xu",
+            "Qiuping Wang",
+            "Xiaolu Zhang",
+            "Yuesheng Gu",
+            "Zhenwei Lu",
+            "Tao Ouyang",
+            "Guanqun Dai",
+            "Wenwen Peng",
+            "Zhe Xu",
+            "Shuo Zhang",
+            "Dong Wu",
+            "Yilei Peng",
+            "Tianyun Wang",
+            "Haoran Zhang",
+            "Jiasheng Wang",
+            "Wenyuan Yan",
+            "Yuanyuan Dong",
+            "Wenhui Yao",
+            "Zhongjie Wu",
+            "Lingjun Zhu",
+            "Chao Shi",
+            "Yinhu Wang",
+            "Rong Liu",
+            "Junping Wu",
+            "Jiaji Zhu",
+            "Jiesheng Wu"
+        ],
+        "abstract": "In this paper, we qualitatively and quantitatively discuss the design choices, production experience, and lessons in building the Elastic Block Storage (EBS) at Alibaba Cloud over the past decade. To cope with hardware advancement and users' demands, we shift our focus from design simplicity in EBS1 to high performance and space efficiency in EBS2, and finally reducing network traffic amplification in EBS3. In addition to the architectural evolutions, we also summarize the lessons and experiences in development as four topics, including: (i) achieving high elasticity in latency, throughput, IOPS and capacity; (ii) improving availability by minimizing the blast radius of individual, regional, and global failure events; (iii) identifying the motivations and key tradeoffs in various hardware offloading solutions; and (iv) identifying the pros/cons of the alternative solutions and explaining why seemingly promising ideas would not work in practice.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 18,
+        "title": "ELECT: Enabling Erasure Coding Tiering for LSM-tree-based Storage",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/ren",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-ren.pdf",
+        "authors": [
+            "Yanjing Ren",
+            "Yuanming Ren",
+            "Xiaolu Li",
+            "Yuchong Hu",
+            "Jingwei Li",
+            "Patrick P. C. Lee"
+        ],
+        "abstract": "Given the skewed nature of practical key-value (KV) storage workloads, distributed KV stores can adopt a tiered approach to support fast data access in a hot tier and persistent storage in a cold tier. To provide data availability guarantees for the hot tier, existing distributed KV stores often rely on replication and incur prohibitively high redundancy overhead. Erasure coding provides a low-cost redundancy alternative, but incurs high access performance overhead. We present ELECT, a distributed KV store that enables erasure coding tiering based on the log-structured merge tree (LSM-tree), by adopting a hybrid redundancy approach that carefully combines replication and erasure coding with respect to the LSM-tree layout. ELECT incorporates hotness awareness and selectively converts data from replication to erasure coding in the hot tier and offloads data from the hot tier to the cold tier. It also provides a tunable approach to balance the trade-off between storage savings and access performance through a single user-configurable parameter. We implemented ELECT atop Cassandra, which is replication-based. Experiments on Alibaba Cloud show that ELECT achieves significant storage savings in the hot tier, while maintaining high performance and data availability guarantees, compared with Cassandra.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 19,
+        "title": "MinFlow: High-performance and Cost-efficient Data Passing for I/O-intensive Stateful Serverless Analytics",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/li",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-li.pdf",
+        "authors": [
+            "Tao Li",
+            "Yongkun Li",
+            "Wenzhe Zhu",
+            "Yinlong Xu",
+            "John C. S. Lui"
+        ],
+        "abstract": "Serverless computing has revolutionized application deployment, obviating traditional infrastructure management and dynamically allocating resources on demand. A significant use case is I/O-intensive applications like data analytics, which widely employ the pivotal \"shuffle\" operation. Unfortunately, the shuffle operation poses severe challenges due to the massive PUT/GET requests to remote storage, especially in high-parallelism scenarios, leading to high performance degradation and storage cost. Existing designs optimize the data passing performance from multiple aspects, while they operate in an isolated way, thus still introducing unforeseen performance bottlenecks and bypassing untapped optimization opportunities. In this paper, we develop MinFlow, a holistic data passing framework for I/O-intensive serverless analytics jobs. MinFlow first rapidly generates numerous feasible multi-level data passing topologies with much fewer PUT/GET operations, then it leverages an interleaved partitioning strategy to divide the topology DAG into small-size bipartite sub-graphs to optimize function scheduling, further reducing over half of the transmitted data to remote storage. Moreover, MinFlow also develops a precise model to determine the optimal configuration, thus minimizing data passing time under practical function deployments. We implement a prototype of MinFlow, and extensive experiments show that MinFlow significantly outperforms state-of-the-art systems, FaaSFlow and Lambada, in both the job completion time and storage cost.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 20,
+        "title": "COLE: A Column-based Learned Storage for Blockchain Systems",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/zhang-ce",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-zhang_ce.pdf",
+        "authors": [
+            "Ce Zhang",
+            "Cheng Xu",
+            "Haibo Hu",
+            "Jianliang Xu"
+        ],
+        "abstract": "Blockchain systems suffer from high storage costs as every node needs to store and maintain the entire blockchain data. After investigating Ethereum's storage, we find that the storage cost mostly comes from the index, i.e., Merkle Patricia Trie (MPT). To support provenance queries, MPT persists the index nodes during the data update, which adds too much storage overhead. To reduce the storage size, an initial idea is to leverage the emerging learned index technique, which has been shown to have a smaller index size and more efficient query performance. However, directly applying it to the blockchain storage results in even higher overhead owing to the requirement of persisting index nodes and the learned index's large node size. To tackle this, we propose COLE, a novel column-based learned storage for blockchain systems. We follow the column-based database design to contiguously store each state's historical values, which are indexed by learned models to facilitate efficient data retrieval and provenance queries. We develop a series of write-optimized strategies to realize COLE in disk environments. Extensive experiments are conducted to validate the performance of the proposed COLE system. Compared with MPT, COLE reduces the storage size by up to 94% while improving the system throughput by 1.4×-5.4×.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 21,
+        "title": "Baleen: ML Admission & Prefetching for Flash Caches",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/wong",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-wong.pdf",
+        "authors": [
+            "Daniel Lin-Kit Wong",
+            "Hao Wu",
+            "Carson Molder",
+            "Sathya Gunasekar",
+            "Jimmy Lu",
+            "Snehal Khandkar",
+            "Abhinav Sharma",
+            "Daniel S. Berger",
+            "Nathan Beckmann",
+            "Gregory R. Ganger"
+        ],
+        "abstract": "Flash caches are used to reduce peak backend load for throughput-constrained data center services, reducing the total number of backend servers required. Bulk storage systems are a large-scale example, backed by high-capacity but low-throughput hard disks, and using flash caches to provide a more cost-effective storage layer underlying everything from blobstores to data warehouses. However, flash caches must address the limited write endurance of flash by limiting the long-term average flash write rate to avoid premature wearout. To do so, most flash caches must use admission policies to filter cache insertions and maximize the workload-reduction value of each flash write. The Baleen flash cache uses coordinated ML admission and prefetching to reduce peak backend load. After learning painful lessons with our early ML policy attempts, we exploit a new cache residency model (which we call episodes) to guide model training. We focus on optimizing for an end-to-end system metric (Disk-head Time) that measures backend load more accurately than IO miss rate or byte miss rate. Evaluation using Meta traces from seven storage clusters shows that Baleen reduces Peak Disk-head Time (and hence the number of backend hard disks required) by 12% over state-of-the-art policies for a fixed flash write rate constraint. Baleen-TCO, which chooses an optimal flash write rate, reduces our estimated total cost of ownership (TCO) by 17%. Code and traces are available at https://www.pdl.cmu.edu/CILES/.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    },
+    {
+        "conference": "USENIX-Fast",
+        "year": "2024",
+        "order": 22,
+        "title": "Seraph: Towards Scalable and Efficient Fully-external Graph Computation via On-demand Processing",
+        "subjects": "USENIX-Fast.2024",
+        "original_url": "https://www.usenix.org/conference/fast24/presentation/yang-tsun-yu",
+        "pdf_url": "https://www.usenix.org/system/files/fast24-yang-tsun-yu.pdf",
+        "authors": [
+            "Tsun-Yu Yang",
+            "Yizou Chen",
+            "Yuhong Liang",
+            "Ming-Chang Yang"
+        ],
+        "abstract": "Fully-external graph computation systems exhibit optimal scalability by computing the ever-growing, large-scale graph with constant amount of memory on a single machine. In particular, they keep the entire massive graph data in storage and iteratively load parts of them into memory for computation. Nevertheless, despite the merit of optimal scalability, their unreasonably-low efficiency often makes them uncompetitive, and even unpractical, to the other types of graph computation systems. The key rationale is that most existing fully-external graph computation systems over-emphasize retrieving graph data from storage through sequential access. Although this principle achieves high storage bandwidth, it often causes reading excessive and irrelevant data, which can severely degrade their overall efficiency. Therefore, this work presents Seraph, a fully-external graph computation system that achieves optimal S calability while toward satisfactory E fficiency improvement. Particularly, inspired by the modern storage offering comparable sequential and random access speeds, Seraph adopts the principle of on-demand processing to access the necessary graph data for saving I/O while enjoying the decent speed in random access. On the basis of this principle, Seraph further devises three practical designs to bring excellent performance leap to fully-external graph computation: 1) the hybrid format to represent the graph data for striking a good balance between I/O amount and access locality, 2) the vertex passing to enable efficient vertex updates on top of hybrid format, and 3) the selective pre-computation to re-use the loaded data for I/O reduction. Our evaluations reveal that Seraph notably outperforms other state-of-the-art fully-external systems under all the evaluated billion-scale graphs and representative graph algorithms by up to two orders of magnitude.",
+        "gemini2.5flash": "",
+        "overall_idea": ""
+    }
+]
