@@ -7,5 +7,5 @@ COMMIT_MSG=${1:-"更新代码和部署"}
 echo "提交代码到main分支..."
 git add .
 git commit -m "$COMMIT_MSG"
-git push -f search main
+git push -f origin main
 echo "===== 代码已上传到main分支 ====="
