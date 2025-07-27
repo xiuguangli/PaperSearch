@@ -4,6 +4,9 @@ set -e
 # 获取提交信息，如果没有提供则使用默认信息
 COMMIT_MSG=${1:-"更新代码和部署"}
 
+echo "===== 先 git pull ====="
+git pull origin main
+
 echo "提交代码到main分支..."
 git add .
 git commit -m "$COMMIT_MSG"
