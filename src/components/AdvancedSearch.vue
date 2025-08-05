@@ -227,6 +227,8 @@ export default {
       searchKeywords: [],
       abstractSearchQuery: '',
       abstractSearchKeywords: [],
+      defaultConference: 'ICCV', // 默认会议
+      defaultYear: new Date().getFullYear(), // 默认年份为当前年份
 
       // 分页
       currentPage: 1,
@@ -278,20 +280,20 @@ export default {
       }
 
       // 默认选择 CVPR 会议
-      if (this.conferences.includes('CVPR')) {
-        this.selectedConferences = ['CVPR'];
+      if (this.conferences.includes(this.defaultConference)) {
+        this.selectedConferences = [this.defaultConference];
 
-        // 获取 CVPR 最新年份
-        const cvprYears = this.conferencesConfig['CVPR'] || [];
-        if (cvprYears.length > 0) {
+        // 获取默认会议最新年份
+        const defaultConferenceYears = this.conferencesConfig[this.defaultConference] || [];
+        if (defaultConferenceYears.length > 0) {
           // 按降序排序，取第一个（最新的）
-          const latestYear = [...cvprYears].sort((a, b) => b - a)[0].toString();
+          const latestYear = [...defaultConferenceYears].sort((a, b) => b - a)[0].toString();
 
           // 设置年份范围为最新年份
           this.startYear = latestYear;
           this.endYear = latestYear;
 
-          console.log(`默认选择 CVPR ${latestYear} 数据`);
+          console.log(`默认选择 ${this.defaultConference} ${latestYear} 数据`);
 
           // 自动执行搜索
           await this.searchPapers();
@@ -701,15 +703,15 @@ export default {
       this.searchKeywords = [];
       this.abstractSearchKeywords = [];
 
-      // 默认选择 CVPR 会议
-      if (this.conferences.includes('CVPR')) {
-        this.selectedConferences = ['CVPR'];
+      // 默认选择一个会议
+      if (this.conferences.includes(this.defaultConference)) {
+        this.selectedConferences = [this.defaultConference];
 
-        // 获取 CVPR 最新年份
-        const cvprYears = this.conferencesConfig['CVPR'] || [];
-        if (cvprYears.length > 0) {
+        // 获取默认会议最新年份
+        const defaultConferenceYears = this.conferencesConfig[this.defaultConference] || [];
+        if (defaultConferenceYears.length > 0) {
           // 按降序排序，取第一个（最新的）
-          const latestYear = [...cvprYears].sort((a, b) => b - a)[0].toString();
+          const latestYear = [...defaultConferenceYears].sort((a, b) => b - a)[0].toString();
 
           // 设置年份范围为最新年份
           this.startYear = latestYear;
@@ -717,7 +719,7 @@ export default {
 
 
         } else {
-          // 如果没有 CVPR 年份数据，使用全局年份范围
+          // 如果没有默认会议年份数据，使用全局年份范围
           if (this.years.length > 0) {
             this.startYear = this.years[this.years.length - 1]; // 最早的年份
             this.endYear = this.years[0]; // 最新的年份
@@ -727,7 +729,7 @@ export default {
           }
         }
       } else {
-        // 如果没有 CVPR 会议，清空会议选择
+        // 如果没有默认会议，清空会议选择
         this.selectedConferences = [];
 
         // 使用全局年份范围

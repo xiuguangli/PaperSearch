@@ -40,8 +40,8 @@ CONFIG = Box({
         "model": "gemini-2.5-flash",
         "api_key_lists": os.environ.get("GEMINI_API_KEYS", "").split(","),
         ### 修正：更保守的默认设置 ###
-        "max_concurrency": 10,  # 并发数，从一个很小的值开始，比如2
-        "rate_limit_sleep": 20, # 每次API调用后等待的秒数，用于控制RPM
+        "max_concurrency": 5,  # 并发数，从一个很小的值开始，比如2
+        "rate_limit_sleep": 30, # 每次API调用后等待的秒数，用于控制RPM
         "max_api_retries": 3,  # 单个API请求失败后的最大重试次数
     },
     "data": {
